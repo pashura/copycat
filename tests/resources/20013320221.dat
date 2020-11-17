@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice>
+  <Header>
+    <InvoiceHeader>
+      <TradingPartnerId>009ACH1G1A1G1</TradingPartnerId>
+      <InvoiceNumber>4714370244</InvoiceNumber>
+      <InvoiceDate>2020-10-06</InvoiceDate>
+      <PurchaseOrderDate>2020-09-21</PurchaseOrderDate>
+      <PurchaseOrderNumber>0081-1188249-3808</PurchaseOrderNumber>
+      <InvoiceTypeCode>DI</InvoiceTypeCode>
+      <TsetPurposeCode>00</TsetPurposeCode>
+      <BuyersCurrency>USD</BuyersCurrency>
+      <SellersCurrency>USD</SellersCurrency>
+      <ExchangeRate>1</ExchangeRate>
+      <Department>081</Department>
+      <Vendor>1008920</Vendor>
+      <BillOfLadingNumber>6100723489</BillOfLadingNumber>
+      <ShipDate>2020-10-06</ShipDate>
+    </InvoiceHeader>
+    <PaymentTerms>
+      <TermsType>01</TermsType>
+      <TermsBasisDateCode>3</TermsBasisDateCode>
+      <TermsDiscountPercentage>2</TermsDiscountPercentage>
+      <TermsDiscountDate>2020-12-19</TermsDiscountDate>
+      <TermsDiscountDueDays>74</TermsDiscountDueDays>
+      <TermsNetDueDate>2020-12-20</TermsNetDueDate>
+      <TermsNetDueDays>75</TermsNetDueDays>
+      <TermsDiscountAmount>0.63</TermsDiscountAmount>
+      <TermsDescription>2% 74, NET 75 DAYS</TermsDescription>
+    </PaymentTerms>
+    <Dates>
+      <DateTimeQualifier>024</DateTimeQualifier>
+      <Date>2020-12-19</Date>
+    </Dates>
+    <Address>
+      <AddressTypeCode>ST</AddressTypeCode>
+      <LocationCodeQualifier>92</LocationCodeQualifier>
+      <AddressLocationNumber>3808</AddressLocationNumber>
+      <AddressName>TARGET</AddressName>
+      <Address1>895 SUNBURY RD</Address1>
+      <City>MIDWAY</City>
+      <State>GA</State>
+      <PostalCode>31320</PostalCode>
+      <Country>US</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>NR</AddressTypeCode>
+      <LocationCodeQualifier>92</LocationCodeQualifier>
+      <AddressLocationNumber>0005019269</AddressLocationNumber>
+      <Address1>4751 HEMPSTEAD STATION DRIVE</Address1>
+      <City>KETTERING</City>
+      <State>OH</State>
+      <PostalCode>45429</PostalCode>
+      <Country>US</Country>
+      <Contacts>
+        <ContactTypeCode>BD</ContactTypeCode>
+        <ContactName>TN18</ContactName>
+      </Contacts>
+    </Address>
+    <Address>
+      <AddressTypeCode>NR</AddressTypeCode>
+      <AddressName>TARGET</AddressName>
+      <Address1>PO BOX 9493</Address1>
+      <City>MINNEAPOLIS</City>
+      <State>MN</State>
+      <PostalCode>55440</PostalCode>
+      <Country>US</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>BT</AddressTypeCode>
+      <AddressName>TARGET</AddressName>
+      <Address1>PO BOX 9493</Address1>
+      <City>MINNEAPOLIS</City>
+      <State>MN</State>
+      <PostalCode>55440</PostalCode>
+      <Country>US</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>RI</AddressTypeCode>
+      <AddressName>ACCO BRANDS USA LLC</AddressName>
+      <Address1>PO BOX 203415</Address1>
+      <City>DALLAS</City>
+      <State>TX</State>
+      <PostalCode>75320</PostalCode>
+      <Country>US</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>NR</AddressTypeCode>
+      <AddressName>TARGET</AddressName>
+      <Address1>PO BOX 9493</Address1>
+      <City>MINNEAPOLIS</City>
+      <State>MN</State>
+      <PostalCode>55440</PostalCode>
+      <Country>US</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>IA</AddressTypeCode>
+      <AddressName>TARGET 1008920 CH VENDOR</AddressName>
+      <AddressAlternateName2>009ACH1G1A1G1</AddressAlternateName2>
+      <Address1>1008920</Address1>
+      <Country>ZZ</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>NR</AddressTypeCode>
+      <AddressName>TARGETACC</AddressName>
+      <AddressAlternateName2>009ACH1G1A1G1</AddressAlternateName2>
+      <Address1>T61114701A</Address1>
+      <Country>ZZ</Country>
+    </Address>
+    <Address>
+      <AddressTypeCode>NR</AddressTypeCode>
+      <LocationCodeQualifier>92</LocationCodeQualifier>
+      <AddressLocationNumber>9001</AddressLocationNumber>
+      <AddressName>ACCO BRANDS USA LLC</AddressName>
+      <AddressAlternateName>ACCO DIVISION</AddressAlternateName>
+      <Address1>4 CORPORATE DRIVE</Address1>
+      <City>LAKE ZURICH</City>
+      <State>IL</State>
+      <PostalCode>60047</PostalCode>
+      <Country>US</Country>
+    </Address>
+    <FOBRelatedInstruction>
+      <FOBPayCode>CC</FOBPayCode>
+      <FOBLocationDescription>LOADING DOCK</FOBLocationDescription>
+      <FOBTitlePassageLocation>TARGET</FOBTitlePassageLocation>
+    </FOBRelatedInstruction>
+    <CarrierInformation>
+      <CarrierTransMethodCode>M</CarrierTransMethodCode>
+      <CarrierAlphaCode>FDEG</CarrierAlphaCode>
+      <CarrierRouting>FEDERAL EXPRESS GROUND</CarrierRouting>
+    </CarrierInformation>
+    <QuantityTotals>
+      <QuantityTotalsQualifier>SQT</QuantityTotalsQualifier>
+      <Quantity>8</Quantity>
+      <QuantityUOM>EA</QuantityUOM>
+      <WeightQualifier>G</WeightQualifier>
+      <Weight>3.44</Weight>
+      <WeightUOM>LB</WeightUOM>
+    </QuantityTotals>
+  </Header>
+  <LineItem>
+    <InvoiceLine>
+      <BuyerPartNumber>081070041</BuyerPartNumber>
+      <VendorPartNumber>85401-SL</VendorPartNumber>
+      <ConsumerPackageCode>034138148501</ConsumerPackageCode>
+      <InvoiceQty>8</InvoiceQty>
+      <InvoiceQtyUOM>EA</InvoiceQtyUOM>
+      <PurchasePrice>3.91</PurchasePrice>
+      <ShipQty>8</ShipQty>
+      <ShipQtyUOM>EA</ShipQtyUOM>
+      <ExtendedItemTotal>31.28</ExtendedItemTotal>
+    </InvoiceLine>
+    <ProductOrItemDescription>
+      <ProductCharacteristicCode>08</ProductCharacteristicCode>
+      <ProductDescription>5.5X14 FRAMELESS DRY ERASE SILVER</ProductDescription>
+    </ProductOrItemDescription>
+    <PhysicalDetails>
+      <PackQualifier>OU</PackQualifier>
+      <PackValue>1</PackValue>
+      <WeightQualifier>G</WeightQualifier>
+      <PackWeight>3.440</PackWeight>
+      <PackWeightUOM>LB</PackWeightUOM>
+    </PhysicalDetails>
+    <References>
+      <ReferenceQual>0001</ReferenceQual>
+      <ReferenceID>5.5X14 FRAMELESS DRY ERASE SILVER</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZPC</ReferenceQual>
+      <ReferenceID>C</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZDIF</ReferenceQual>
+      <ReferenceID>8.000</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZUK</ReferenceQual>
+      <ReferenceID>50034138148506</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZEA</ReferenceQual>
+      <ReferenceID>8</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZIP</ReferenceQual>
+      <ReferenceID>1</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZIN</ReferenceQual>
+      <ReferenceID>8</ReferenceID>
+    </References>
+    <References>
+      <ReferenceQual>ZWTE</ReferenceQual>
+      <ReferenceID>0.430</ReferenceID>
+    </References>
+  </LineItem>
+  <Summary>
+    <TotalAmount>31.28</TotalAmount>
+    <TotalSalesAmount>31.28</TotalSalesAmount>
+    <TotalTermsDiscountAmount>0.63</TotalTermsDiscountAmount>
+    <TotalLineItemNumber>1</TotalLineItemNumber>
+    <InvoiceAmtDueByTermsDate>30.65</InvoiceAmtDueByTermsDate>
+  </Summary>
+</Invoice>
+

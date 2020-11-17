@@ -1,0 +1,1304 @@
+[
+  {
+    "name": "IsDropShip",
+    "text": true,
+    "length": 4,
+    "location": "/Invoice/Meta/IsDropShip",
+    "type": " 'bool'"
+  },
+  {
+    "name": "TradingPartnerId",
+    "text": "TradingP_DS_000",
+    "length": 15,
+    "location": "/Invoice/Header/InvoiceHeader/TradingPartnerId",
+    "type": " 'str'"
+  },
+  {
+    "name": "InvoiceDate",
+    "text": "2000-06-22",
+    "length": 10,
+    "location": "/Invoice/Header/InvoiceHeader/InvoiceDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "PurchaseOrderNumber",
+    "text": "PurchaseOrderNu_DS_000",
+    "length": 22,
+    "location": "/Invoice/Header/InvoiceHeader/PurchaseOrderNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "PrimaryPOTypeCode",
+    "text": "DS",
+    "length": 2,
+    "location": "/Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "Department",
+    "text": "DepartmentDepartmentDep_DS_000",
+    "length": 30,
+    "location": "/Invoice/Header/InvoiceHeader/Department",
+    "type": " 'str'"
+  },
+  {
+    "name": "Vendor",
+    "text": "VendorVendorVendorVendo_DS_000",
+    "length": 30,
+    "location": "/Invoice/Header/InvoiceHeader/Vendor",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierProNumber",
+    "text": "CarrierProNumberCarrier_DS_000",
+    "length": 30,
+    "location": "/Invoice/Header/InvoiceHeader/CarrierProNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "BillOfLadingNumber",
+    "text": "BillOfLadingNumberBillO_DS_000",
+    "length": 30,
+    "location": "/Invoice/Header/InvoiceHeader/BillOfLadingNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "ShipDate",
+    "text": "1985-07-01",
+    "length": 10,
+    "location": "/Invoice/Header/InvoiceHeader/ShipDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "ShipTime",
+    "text": "14:00",
+    "length": 5,
+    "location": "/Invoice/Header/InvoiceHeader/ShipTime",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsType",
+    "text": "01",
+    "length": 2,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsType",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsBasisDateCode",
+    "text": "2",
+    "length": 1,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsBasisDateCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsDiscountPercentage",
+    "text": "007.23",
+    "length": 6,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsDiscountPercentage",
+    "type": " 'float'"
+  },
+  {
+    "name": "TermsDiscountDate",
+    "text": "1993-10-18",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsDiscountDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsDiscountDueDays",
+    "text": "103",
+    "length": 3,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsDiscountDueDays",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsNetDueDate",
+    "text": "2017-11-16",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsNetDueDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsNetDueDays",
+    "text": "106",
+    "length": 3,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsNetDueDays",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsDiscountAmount",
+    "text": "0000004.80",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[1]/TermsDiscountAmount",
+    "type": " 'float'"
+  },
+  {
+    "name": "TermsType",
+    "text": "02",
+    "length": 2,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsType",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsBasisDateCode",
+    "text": "3",
+    "length": 1,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsBasisDateCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsDiscountPercentage",
+    "text": "004.05",
+    "length": 6,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsDiscountPercentage",
+    "type": " 'float'"
+  },
+  {
+    "name": "TermsDiscountDate",
+    "text": "1993-08-24",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsDiscountDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsDiscountDueDays",
+    "text": "109",
+    "length": 3,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsDiscountDueDays",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsNetDueDate",
+    "text": "1987-04-12",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsNetDueDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsNetDueDays",
+    "text": "107",
+    "length": 3,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsNetDueDays",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsDiscountAmount",
+    "text": "0000004.89",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[2]/TermsDiscountAmount",
+    "type": " 'float'"
+  },
+  {
+    "name": "TermsType",
+    "text": "14",
+    "length": 2,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsType",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsBasisDateCode",
+    "text": "2",
+    "length": 1,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsBasisDateCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsDiscountPercentage",
+    "text": "006.80",
+    "length": 6,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsDiscountPercentage",
+    "type": " 'float'"
+  },
+  {
+    "name": "TermsDiscountDate",
+    "text": "1972-09-12",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsDiscountDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsDiscountDueDays",
+    "text": "109",
+    "length": 3,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsDiscountDueDays",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsNetDueDate",
+    "text": "1999-10-22",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsNetDueDate",
+    "type": " 'str'"
+  },
+  {
+    "name": "TermsNetDueDays",
+    "text": "105",
+    "length": 3,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsNetDueDays",
+    "type": " 'int'"
+  },
+  {
+    "name": "TermsDiscountAmount",
+    "text": "0000006.19",
+    "length": 10,
+    "location": "/Invoice/Header/PaymentTerms[3]/TermsDiscountAmount",
+    "type": " 'float'"
+  },
+  {
+    "name": "AddressTypeCode",
+    "text": "BY",
+    "length": 2,
+    "location": "/Invoice/Header/Address[1]/AddressTypeCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "LocationCodeQualifier",
+    "text": "91",
+    "length": 2,
+    "location": "/Invoice/Header/Address[1]/LocationCodeQualifier",
+    "type": " 'int'"
+  },
+  {
+    "name": "AddressLocationNumber",
+    "text": "AddressLocationNumberAddressLocationNumberAddressLocationNumberAddressLoc_BY_000",
+    "length": 80,
+    "location": "/Invoice/Header/Address[1]/AddressLocationNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address1",
+    "text": "Address1Address1Address1Address1Address1Address1_BY_000",
+    "length": 55,
+    "location": "/Invoice/Header/Address[1]/Address1",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address2",
+    "text": "Address2Address2Address2Address2Address2Address2_BY_000",
+    "length": 55,
+    "location": "/Invoice/Header/Address[1]/Address2",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address3",
+    "text": "Address3Address3Address3Address3Address3Address3_BY_000",
+    "length": 55,
+    "location": "/Invoice/Header/Address[1]/Address3",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address4",
+    "text": "Address4Address4Address4Address4Address4Address4_BY_000",
+    "length": 55,
+    "location": "/Invoice/Header/Address[1]/Address4",
+    "type": " 'str'"
+  },
+  {
+    "name": "City",
+    "text": "CityCityCityCityCityCit_BY_000",
+    "length": 30,
+    "location": "/Invoice/Header/Address[1]/City",
+    "type": " 'str'"
+  },
+  {
+    "name": "State",
+    "text": "BY",
+    "length": 2,
+    "location": "/Invoice/Header/Address[1]/State",
+    "type": " 'str'"
+  },
+  {
+    "name": "PostalCode",
+    "text": "PostalCo_BY_000",
+    "length": 15,
+    "location": "/Invoice/Header/Address[1]/PostalCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AddressTypeCode",
+    "text": "SF",
+    "length": 2,
+    "location": "/Invoice/Header/Address[2]/AddressTypeCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "LocationCodeQualifier",
+    "text": "92",
+    "length": 2,
+    "location": "/Invoice/Header/Address[2]/LocationCodeQualifier",
+    "type": " 'int'"
+  },
+  {
+    "name": "AddressLocationNumber",
+    "text": "AddressLocationNumberAddressLocationNumberAddressLocationNumberAddressLoc_SF_001",
+    "length": 80,
+    "location": "/Invoice/Header/Address[2]/AddressLocationNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address1",
+    "text": "Address1Address1Address1Address1Address1Address1_SF_001",
+    "length": 55,
+    "location": "/Invoice/Header/Address[2]/Address1",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address2",
+    "text": "Address2Address2Address2Address2Address2Address2_SF_001",
+    "length": 55,
+    "location": "/Invoice/Header/Address[2]/Address2",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address3",
+    "text": "Address3Address3Address3Address3Address3Address3_SF_001",
+    "length": 55,
+    "location": "/Invoice/Header/Address[2]/Address3",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address4",
+    "text": "Address4Address4Address4Address4Address4Address4_SF_001",
+    "length": 55,
+    "location": "/Invoice/Header/Address[2]/Address4",
+    "type": " 'str'"
+  },
+  {
+    "name": "City",
+    "text": "CityCityCityCityCityCit_SF_001",
+    "length": 30,
+    "location": "/Invoice/Header/Address[2]/City",
+    "type": " 'str'"
+  },
+  {
+    "name": "State",
+    "text": "SF",
+    "length": 2,
+    "location": "/Invoice/Header/Address[2]/State",
+    "type": " 'str'"
+  },
+  {
+    "name": "PostalCode",
+    "text": "PostalCo_SF_001",
+    "length": 15,
+    "location": "/Invoice/Header/Address[2]/PostalCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AddressTypeCode",
+    "text": "ST",
+    "length": 2,
+    "location": "/Invoice/Header/Address[3]/AddressTypeCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "LocationCodeQualifier",
+    "text": "91",
+    "length": 2,
+    "location": "/Invoice/Header/Address[3]/LocationCodeQualifier",
+    "type": " 'int'"
+  },
+  {
+    "name": "AddressLocationNumber",
+    "text": "AddressLocationNumberAddressLocationNumberAddressLocationNumberAddressLoc_ST_002",
+    "length": 80,
+    "location": "/Invoice/Header/Address[3]/AddressLocationNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address1",
+    "text": "Address1Address1Address1Address1Address1Address1_ST_002",
+    "length": 55,
+    "location": "/Invoice/Header/Address[3]/Address1",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address2",
+    "text": "Address2Address2Address2Address2Address2Address2_ST_002",
+    "length": 55,
+    "location": "/Invoice/Header/Address[3]/Address2",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address3",
+    "text": "Address3Address3Address3Address3Address3Address3_ST_002",
+    "length": 55,
+    "location": "/Invoice/Header/Address[3]/Address3",
+    "type": " 'str'"
+  },
+  {
+    "name": "Address4",
+    "text": "Address4Address4Address4Address4Address4Address4_ST_002",
+    "length": 55,
+    "location": "/Invoice/Header/Address[3]/Address4",
+    "type": " 'str'"
+  },
+  {
+    "name": "City",
+    "text": "CityCityCityCityCityCit_ST_002",
+    "length": 30,
+    "location": "/Invoice/Header/Address[3]/City",
+    "type": " 'str'"
+  },
+  {
+    "name": "State",
+    "text": "ST",
+    "length": 2,
+    "location": "/Invoice/Header/Address[3]/State",
+    "type": " 'str'"
+  },
+  {
+    "name": "PostalCode",
+    "text": "PostalCo_ST_002",
+    "length": 15,
+    "location": "/Invoice/Header/Address[3]/PostalCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "ReferenceQual",
+    "text": "PD",
+    "length": 2,
+    "location": "/Invoice/Header/References/ReferenceQual",
+    "type": " 'str'"
+  },
+  {
+    "name": "ReferenceID",
+    "text": "ReferenceIDReferenceIDR_PD_000",
+    "length": 30,
+    "location": "/Invoice/Header/References/ReferenceID",
+    "type": " 'str'"
+  },
+  {
+    "name": "NoteCode",
+    "text": "NTE",
+    "length": 3,
+    "location": "/Invoice/Header/Notes/NoteCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "Note",
+    "text": "NoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNoteNote_NTE_000",
+    "length": 80,
+    "location": "/Invoice/Header/Notes/Note",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgIndicator",
+    "text": "A",
+    "length": 1,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgIndicator",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgCode",
+    "text": "B950",
+    "length": 4,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgencyCode",
+    "text": "VI",
+    "length": 2,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgAgencyCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgency",
+    "text": "Allo_A_000",
+    "length": 10,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgAgency",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAmt",
+    "text": "000000000004.28",
+    "length": 15,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgAmt",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgPercentQual",
+    "text": "3",
+    "length": 1,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgPercentQual",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgPercent",
+    "text": "005.86",
+    "length": 6,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgPercent",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgQty",
+    "text": "000000000001.26",
+    "length": 15,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgHandlingCode",
+    "text": "02",
+    "length": 2,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgHandlingCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgHandlingDescription",
+    "text": "AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_A_000",
+    "length": 80,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgHandlingDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgQty2",
+    "text": "000000000003.56",
+    "length": 15,
+    "location": "/Invoice/Header/ChargesAllowances[1]/AllowChrgQty2",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgIndicator",
+    "text": "C",
+    "length": 1,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgIndicator",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgCode",
+    "text": "C310",
+    "length": 4,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgencyCode",
+    "text": "VI",
+    "length": 2,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgAgencyCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgency",
+    "text": "Allo_C_001",
+    "length": 10,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgAgency",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAmt",
+    "text": "000000000007.92",
+    "length": 15,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgAmt",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgPercentQual",
+    "text": "3",
+    "length": 1,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgPercentQual",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgPercent",
+    "text": "005.87",
+    "length": 6,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgPercent",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgQty",
+    "text": "000000000006.39",
+    "length": 15,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgHandlingCode",
+    "text": "06",
+    "length": 2,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgHandlingCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgHandlingDescription",
+    "text": "AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_C_001",
+    "length": 80,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgHandlingDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgQty2",
+    "text": "000000000002.46",
+    "length": 15,
+    "location": "/Invoice/Header/ChargesAllowances[2]/AllowChrgQty2",
+    "type": " 'float'"
+  },
+  {
+    "name": "CarrierTransMethodCode",
+    "text": "C",
+    "length": 1,
+    "location": "/Invoice/Header/CarrierInformation[1]/CarrierTransMethodCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierAlphaCode",
+    "text": "000C",
+    "length": 4,
+    "location": "/Invoice/Header/CarrierInformation[1]/CarrierAlphaCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierRouting",
+    "text": "CarrierRoutingCarrierRoutingC_C_000",
+    "length": 35,
+    "location": "/Invoice/Header/CarrierInformation[1]/CarrierRouting",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierTransMethodCode",
+    "text": "M",
+    "length": 1,
+    "location": "/Invoice/Header/CarrierInformation[2]/CarrierTransMethodCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierAlphaCode",
+    "text": "001C",
+    "length": 4,
+    "location": "/Invoice/Header/CarrierInformation[2]/CarrierAlphaCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierRouting",
+    "text": "CarrierRoutingCarrierRoutingC_M_001",
+    "length": 35,
+    "location": "/Invoice/Header/CarrierInformation[2]/CarrierRouting",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierTransMethodCode",
+    "text": "P",
+    "length": 1,
+    "location": "/Invoice/Header/CarrierInformation[3]/CarrierTransMethodCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierAlphaCode",
+    "text": "002C",
+    "length": 4,
+    "location": "/Invoice/Header/CarrierInformation[3]/CarrierAlphaCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "CarrierRouting",
+    "text": "CarrierRoutingCarrierRoutingC_P_002",
+    "length": 35,
+    "location": "/Invoice/Header/CarrierInformation[3]/CarrierRouting",
+    "type": " 'str'"
+  },
+  {
+    "name": "QuantityTotalsQualifier",
+    "text": "SQT",
+    "length": 3,
+    "location": "/Invoice/Header/QuantityTotals/QuantityTotalsQualifier",
+    "type": " 'str'"
+  },
+  {
+    "name": "Quantity",
+    "text": "0000006.66",
+    "length": 10,
+    "location": "/Invoice/Header/QuantityTotals/Quantity",
+    "type": " 'float'"
+  },
+  {
+    "name": "QuantityUOM",
+    "text": "CA",
+    "length": 2,
+    "location": "/Invoice/Header/QuantityTotals/QuantityUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "Weight",
+    "text": "0000001.57",
+    "length": 10,
+    "location": "/Invoice/Header/QuantityTotals/Weight",
+    "type": " 'float'"
+  },
+  {
+    "name": "WeightUOM",
+    "text": "LB",
+    "length": 2,
+    "location": "/Invoice/Header/QuantityTotals/WeightUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "RegulatoryComplianceQual",
+    "text": "PACA",
+    "length": 4,
+    "location": "/Invoice/Header/RegulatoryCompliances/RegulatoryComplianceQual",
+    "type": " 'str'"
+  },
+  {
+    "name": "YesOrNoResponse",
+    "text": "Y",
+    "length": 1,
+    "location": "/Invoice/Header/RegulatoryCompliances/YesOrNoResponse",
+    "type": " 'str'"
+  },
+  {
+    "name": "LineSequenceNumber",
+    "text": "LineSequenceN_CA_000",
+    "length": 20,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/LineSequenceNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "BuyerPartNumber",
+    "text": "BuyerPartNumberBuyerPartNumberBuyerPartNu_CA_000",
+    "length": 48,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/BuyerPartNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "ConsumerPackageCode",
+    "text": "ConsumerPackageCodeConsumerPackageCodeCon_CA_000",
+    "length": 48,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/ConsumerPackageCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "EAN",
+    "text": "EANEANEANEANEANEANEANEANEANEANEANEANEANEA_CA_000",
+    "length": 48,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/EAN",
+    "type": " 'str'"
+  },
+  {
+    "name": "UPCCaseCode",
+    "text": "UPCCaseCodeUPCCaseCodeUPCCaseCodeUPCCaseC_CA_000",
+    "length": 48,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/UPCCaseCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "PartNumberQual",
+    "text": "ZBP",
+    "length": 3,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/ProductID/PartNumberQual",
+    "type": " 'str'"
+  },
+  {
+    "name": "PartNumber",
+    "text": "PartNumberPartNumberPartNumberPartNu_CA_ZBP_0000",
+    "length": 48,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/ProductID/PartNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "InvoiceQty",
+    "text": "0000006.17",
+    "length": 10,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/InvoiceQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "InvoiceQtyUOM",
+    "text": "CA",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/InvoiceQtyUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "PurchasePrice",
+    "text": "00000000000001.58",
+    "length": 17,
+    "location": "/Invoice/LineItem[1]/InvoiceLine/PurchasePrice",
+    "type": " 'float'"
+  },
+  {
+    "name": "ProductCharacteristicCode",
+    "text": "08",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ProductOrItemDescription/ProductCharacteristicCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "ProductDescription",
+    "text": "ProductDescriptionProductDescriptionProductDescriptionProductDescriptionP_08_000",
+    "length": 80,
+    "location": "/Invoice/LineItem[1]/ProductOrItemDescription/ProductDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "PackQualifier",
+    "text": "OU",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/PhysicalDetails[1]/PackQualifier",
+    "type": " 'str'"
+  },
+  {
+    "name": "PackValue",
+    "text": "100009",
+    "length": 6,
+    "location": "/Invoice/LineItem[1]/PhysicalDetails[1]/PackValue",
+    "type": " 'int'"
+  },
+  {
+    "name": "PackQualifier",
+    "text": "IN",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/PhysicalDetails[2]/PackQualifier",
+    "type": " 'str'"
+  },
+  {
+    "name": "PackValue",
+    "text": "100004",
+    "length": 6,
+    "location": "/Invoice/LineItem[1]/PhysicalDetails[2]/PackValue",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgIndicator",
+    "text": "A",
+    "length": 1,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgIndicator",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgCode",
+    "text": "B950",
+    "length": 4,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgencyCode",
+    "text": "VI",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgAgencyCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgency",
+    "text": "Allo_A_000",
+    "length": 10,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgAgency",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAmt",
+    "text": "000000000003.48",
+    "length": 15,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgAmt",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgPercentQual",
+    "text": "5",
+    "length": 1,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgPercentQual",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgPercent",
+    "text": "005.07",
+    "length": 6,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgPercent",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgQtyUOM",
+    "text": "EA",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgQtyUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgQty",
+    "text": "000000000005.65",
+    "length": 15,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgHandlingCode",
+    "text": "02",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgHandlingCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgHandlingDescription",
+    "text": "AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_A_000",
+    "length": 80,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[1]/AllowChrgHandlingDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgIndicator",
+    "text": "C",
+    "length": 1,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgIndicator",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgCode",
+    "text": "C310",
+    "length": 4,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgencyCode",
+    "text": "VI",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgAgencyCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgency",
+    "text": "Allo_C_001",
+    "length": 10,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgAgency",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAmt",
+    "text": "000000000005.13",
+    "length": 15,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgAmt",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgPercentQual",
+    "text": "6",
+    "length": 1,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgPercentQual",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgPercent",
+    "text": "004.79",
+    "length": 6,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgPercent",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgQtyUOM",
+    "text": "EA",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgQtyUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgQty",
+    "text": "000000000003.24",
+    "length": 15,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgHandlingCode",
+    "text": "06",
+    "length": 2,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgHandlingCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgHandlingDescription",
+    "text": "AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_C_001",
+    "length": 80,
+    "location": "/Invoice/LineItem[1]/ChargesAllowances[2]/AllowChrgHandlingDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "LineSequenceNumber",
+    "text": "LineSequenceN_EA_010",
+    "length": 20,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/LineSequenceNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "BuyerPartNumber",
+    "text": "BuyerPartNumberBuyerPartNumberBuyerPartNu_EA_010",
+    "length": 48,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/BuyerPartNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "ConsumerPackageCode",
+    "text": "ConsumerPackageCodeConsumerPackageCodeCon_EA_010",
+    "length": 48,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/ConsumerPackageCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "EAN",
+    "text": "EANEANEANEANEANEANEANEANEANEANEANEANEANEA_EA_010",
+    "length": 48,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/EAN",
+    "type": " 'str'"
+  },
+  {
+    "name": "UPCCaseCode",
+    "text": "UPCCaseCodeUPCCaseCodeUPCCaseCodeUPCCaseC_EA_010",
+    "length": 48,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/UPCCaseCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "PartNumberQual",
+    "text": "ZBP",
+    "length": 3,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/ProductID/PartNumberQual",
+    "type": " 'str'"
+  },
+  {
+    "name": "PartNumber",
+    "text": "PartNumberPartNumberPartNumberPartNu_EA_ZBP_0100",
+    "length": 48,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/ProductID/PartNumber",
+    "type": " 'str'"
+  },
+  {
+    "name": "InvoiceQty",
+    "text": "0000005.25",
+    "length": 10,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/InvoiceQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "InvoiceQtyUOM",
+    "text": "EA",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/InvoiceQtyUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "PurchasePrice",
+    "text": "00000000000002.53",
+    "length": 17,
+    "location": "/Invoice/LineItem[2]/InvoiceLine/PurchasePrice",
+    "type": " 'float'"
+  },
+  {
+    "name": "ProductCharacteristicCode",
+    "text": "08",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ProductOrItemDescription/ProductCharacteristicCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "ProductDescription",
+    "text": "ProductDescriptionProductDescriptionProductDescriptionProductDescriptionP_08_010",
+    "length": 80,
+    "location": "/Invoice/LineItem[2]/ProductOrItemDescription/ProductDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "PackQualifier",
+    "text": "OU",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/PhysicalDetails[1]/PackQualifier",
+    "type": " 'str'"
+  },
+  {
+    "name": "PackValue",
+    "text": "100009",
+    "length": 6,
+    "location": "/Invoice/LineItem[2]/PhysicalDetails[1]/PackValue",
+    "type": " 'int'"
+  },
+  {
+    "name": "PackQualifier",
+    "text": "IN",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/PhysicalDetails[2]/PackQualifier",
+    "type": " 'str'"
+  },
+  {
+    "name": "PackValue",
+    "text": "100004",
+    "length": 6,
+    "location": "/Invoice/LineItem[2]/PhysicalDetails[2]/PackValue",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgIndicator",
+    "text": "A",
+    "length": 1,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgIndicator",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgCode",
+    "text": "B950",
+    "length": 4,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgencyCode",
+    "text": "VI",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgAgencyCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgency",
+    "text": "Allo_A_010",
+    "length": 10,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgAgency",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAmt",
+    "text": "000000000005.70",
+    "length": 15,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgAmt",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgPercentQual",
+    "text": "5",
+    "length": 1,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgPercentQual",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgPercent",
+    "text": "003.81",
+    "length": 6,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgPercent",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgQtyUOM",
+    "text": "EA",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgQtyUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgQty",
+    "text": "000000000005.80",
+    "length": 15,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgHandlingCode",
+    "text": "02",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgHandlingCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgHandlingDescription",
+    "text": "AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_A_010",
+    "length": 80,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[1]/AllowChrgHandlingDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgIndicator",
+    "text": "C",
+    "length": 1,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgIndicator",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgCode",
+    "text": "C310",
+    "length": 4,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgencyCode",
+    "text": "VI",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgAgencyCode",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAgency",
+    "text": "Allo_C_011",
+    "length": 10,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgAgency",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgAmt",
+    "text": "000000000001.99",
+    "length": 15,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgAmt",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgPercentQual",
+    "text": "6",
+    "length": 1,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgPercentQual",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgPercent",
+    "text": "006.17",
+    "length": 6,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgPercent",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgQtyUOM",
+    "text": "EA",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgQtyUOM",
+    "type": " 'str'"
+  },
+  {
+    "name": "AllowChrgQty",
+    "text": "000000000008.12",
+    "length": 15,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgQty",
+    "type": " 'float'"
+  },
+  {
+    "name": "AllowChrgHandlingCode",
+    "text": "06",
+    "length": 2,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgHandlingCode",
+    "type": " 'int'"
+  },
+  {
+    "name": "AllowChrgHandlingDescription",
+    "text": "AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_C_011",
+    "length": 80,
+    "location": "/Invoice/LineItem[2]/ChargesAllowances[2]/AllowChrgHandlingDescription",
+    "type": " 'str'"
+  },
+  {
+    "name": "TotalAmount",
+    "text": "000000000003.54",
+    "length": 15,
+    "location": "/Invoice/Summary/TotalAmount",
+    "type": " 'float'"
+  },
+  {
+    "name": "TotalSalesAmount",
+    "text": "000000000006.00",
+    "length": 15,
+    "location": "/Invoice/Summary/TotalSalesAmount",
+    "type": " 'float'"
+  },
+  {
+    "name": "TotalLineItemNumber",
+    "text": "100004",
+    "length": 6,
+    "location": "/Invoice/Summary/TotalLineItemNumber",
+    "type": " 'int'"
+  }
+]
