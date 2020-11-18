@@ -1,7 +1,7 @@
-from pydantic import Field, StrictBool, root_validator
 from typing import List, Optional, Union
 
 from models.base import BaseDesign
+from pydantic import Field, StrictBool, root_validator
 
 
 class Attribute(BaseDesign):

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 
 from copy_cat.copy_cat import main_run
 from copy_cat.parsers.parser import Parser

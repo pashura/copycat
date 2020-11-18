@@ -1,8 +1,8 @@
 import json
 
 from copy_cat.parsers.json_parser import parse
-from copy_cat.services.td_service import TDService
 from copy_cat.parsers.xml_parser import parse_xml
+from copy_cat.services.td_service import TDService
 
 
 def add_locations(schema_object):

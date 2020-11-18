@@ -1,8 +1,9 @@
-from copy_cat.utils import traverse_path_in_schema_object, find_dictionary
 import datetime
 
 from dateutil.parser import ParserError
 from dateutil.parser import parse as parse_date
+
+from copy_cat.utils import find_dictionary, traverse_path_in_schema_object
 
 
 class Parser:
