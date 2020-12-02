@@ -1,6 +1,6 @@
 from typing import List, Optional, Union
 
-from models.base import BaseDesign
+from copy_cat.models.base import BaseDesign
 
 
 class TestDataObject(BaseDesign):

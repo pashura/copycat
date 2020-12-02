@@ -130,3 +130,4 @@ dmypy.json
 
 .idea/
 tmp.xml
+.DS_Store
