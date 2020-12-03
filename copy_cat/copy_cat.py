@@ -1,7 +1,7 @@
 import json
 
-from copy_cat.parsers.json_parser import parse
-from copy_cat.parsers.xml_parser import parse_xml
+from copy_cat.parsers.json_parser import JSONParser
+from copy_cat.parsers.xml_parser import XMLParser
 from copy_cat.services.td_service import TDService
 
 
@@ -22,15 +22,14 @@ def main_run(ps, token, org_id, design_name, body):
     design = td_service.get_reversed_design(org_id, design_name)
     design = json.loads(design)
     add_locations(design)
-
     with open('tmp.xml', 'wb') as f:
         f.write(body)
     with open('tmp.xml', 'r') as f:
-        test_data = parse_xml(f)
+        test_data = XMLParser(f).parse()
 
-    flatten_result = parse(json.loads(test_data))
+    flatten_result = JSONParser(test_data).parse()
 
-    ps.process(flatten_result, design)
+    ps.validate(flatten_result, design)
     # try:
     #     a = DesignObject.parse_obj(design)
     # except ValidationError as e:

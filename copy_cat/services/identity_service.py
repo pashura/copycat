@@ -36,14 +36,13 @@ class IdentityService:
         }
         try:
             rsp = requests.post(
-                f'{self.url}/identity/token', headers=headers,
-                data=payload
+                f'{self.url}/identity/token/', headers=headers,
+                json=payload
             )
         except requests.exceptions.RequestException as e:
             raise ServiceError from e
 
         rsp = self._process_response(rsp)
-        print(rsp.json())
         return rsp.json()
 
     @classmethod

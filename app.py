@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, request
 
 from copy_cat.copy_cat import main_run
-from copy_cat.parsers.parser import Parser
 from copy_cat.services.identity_service import IdentityService
+from copy_cat.validators.validator import Validator
 
 app = Flask(__name__)
 
@@ -27,12 +27,10 @@ def check_design(design_name):
 @app.route('/validate/org_id/<org_id>/design/<design_name>', methods=['POST'])
 def run(org_id, design_name):
     is_ = IdentityService()
-    is_.get_identity_token()
+    token = is_.get_identity_token()
 
-    token = request.headers.get("Authorization").removeprefix('Bearer ')
-    body = request.data
-    ps = Parser()
-    ps.errors.clear()  # TODO: remove
+    validator = Validator()
+    validator.errors.clear()  # TODO: remove
 
-    main_run(ps, token, org_id, design_name, body)
-    return jsonify(ps.errors)
+    main_run(validator, token['access_token'], org_id, design_name, request.data)
+    return jsonify(validator.errors)
