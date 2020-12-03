@@ -1,7 +1,8 @@
 from typing import List, Optional, Union
 
-from copy_cat.models.base import BaseDesign
 from pydantic import Field, StrictBool
+
+from copy_cat.models.base import BaseDesign
 
 
 class Attribute(BaseDesign):

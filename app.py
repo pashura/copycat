@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, request
 
-from copy_cat.copy_cat import main_run
-from copy_cat.parsers.parser import Parser
+from copy_cat.copy_cat import CopyCat
 from copy_cat.services.identity_service import IdentityService
+from copy_cat.services.td_service import TDService
 
 app = Flask(__name__)
 
@@ -26,13 +26,12 @@ def check_design(design_name):
 
 @app.route('/validate/org_id/<org_id>/design/<design_name>', methods=['POST'])
 def run(org_id, design_name):
-    is_ = IdentityService()
-    is_.get_identity_token()
+    cc = CopyCat()
 
-    token = request.headers.get("Authorization").removeprefix('Bearer ')
-    body = request.data
-    ps = Parser()
-    ps.errors.clear()  # TODO: remove
-
-    main_run(ps, token, org_id, design_name, body)
-    return jsonify(ps.errors)
+    # TODO: Move logic to get design to copycat app? ??
+    identity_service = IdentityService()
+    token = identity_service.get_identity_token()['access_token']
+    td_service = TDService('test', token)
+    design = td_service.get_reversed_design(org_id, design_name)
+    cc.run(design, request.data)
+    return jsonify(cc.errors)

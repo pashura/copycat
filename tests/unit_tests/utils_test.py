@@ -1,7 +1,11 @@
 from unittest.mock import patch
 
-from copy_cat.utils import traverse_path_in_schema_object, find_child_schema_object, get_schema_object_name, \
-    find_dictionary
+from copy_cat.utils import (
+    find_child_schema_object,
+    find_dictionary,
+    get_schema_object_name,
+    traverse_path_in_schema_object
+)
 
 
 def test_traverse_path_in_schema_object_should_find_element_by_name_and_suffix():
