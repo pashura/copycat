@@ -17,6 +17,7 @@ class RequirementsValidator:
                 test_data_obj = next((i for i in test_data
                                       if self._get_path_from_location(i["location"]) == child.get('location')), None)
                 if not test_data_obj:
+                    # TODO: Fix error message to be similar to web xd
                     error_message = f"Missing mandatory {child['name']} in {schema['name']} record"
                     self.errors.append({
                         "fieldName": "",

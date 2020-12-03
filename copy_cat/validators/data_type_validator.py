@@ -16,12 +16,13 @@ class DataTypeValidator:
     def data_type_validator(self, design_object, test_data_object):
         restriction_obj = find_dictionary(design_object.get("attributes"), "elementType", "restriction") or {}
         expected_data_type = restriction_obj.get('displayName')
+        # TODO: Fix error messages to be similar to web xd
 
         #  Date/Time validator
         if expected_data_type in ['Date', 'Time']:
-            date_data_type_ = self._get_date_format(test_data_object.get('text'))
-            if date_data_type_ is None:
-                error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. Found -> 'String'"
+            data_type_ = self._get_date_format(test_data_object.get('text'))
+            if data_type_ == 'String':
+                error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. Found -> '{data_type_}'"
                 self.errors.append({
                     "fieldName": test_data_object['name'],
                     "fieldPath": design_object['location'],
@@ -31,10 +32,10 @@ class DataTypeValidator:
 
         # Float validator
         if expected_data_type == 'Decimal':
-            decimal_data_type_ = test_data_object.get('type').strip().replace("'", "")
-            if decimal_data_type_ != 'float' and decimal_data_type_ != 'int':
+            data_type_ = test_data_object.get('type').strip().replace("'", "")
+            if data_type_ != 'float' and data_type_ != 'int':
                 error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. " \
-                                f"Found -> '{decimal_data_type_}'"
+                                f"Found -> '{data_type_}'"
                 self.errors.append({
                     "fieldName": test_data_object['name'],
                     "fieldPath": design_object['location'],
@@ -44,10 +45,10 @@ class DataTypeValidator:
 
         # Integer validator
         if expected_data_type == 'Integer':
-            decimal_data_type_ = test_data_object.get('type').strip().replace("'", "")
-            if decimal_data_type_ != 'int':
+            data_type_ = test_data_object.get('type').strip().replace("'", "")
+            if data_type_ != 'int':
                 error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. " \
-                                f"Found -> '{decimal_data_type_}'"
+                                f"Found -> '{data_type_}'"
                 self.errors.append({
                     "fieldName": test_data_object['name'],
                     "fieldPath": design_object['location'],
@@ -66,4 +67,4 @@ class DataTypeValidator:
                 return datetime.time
             return datetime.datetime
         except (TypeError, ValueError, OverflowError, ParserError):
-            pass
+            return 'String'

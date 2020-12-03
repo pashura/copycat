@@ -13,6 +13,7 @@ class ChoicesValidator:
         if restriction_obj.get('displayName') == 'StringSet':
             qualifiers = [i.strip() for i in design_object.get("qualifiers", '').split(',')]
             if test_data_object.get('text') not in qualifiers and not restriction_obj.get("dropExtraRecords"):
+                # TODO: Fix error message to be similar to web xd
                 error_message = f"Qualifier {test_data_object.get('text')} is not valid. " \
                                 f"Possible choices -> {qualifiers}"
                 self.errors.append({
