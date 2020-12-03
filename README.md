@@ -24,7 +24,7 @@ http://127.0.0.1:5000/validate/org_id/{{org_id}}/design/{{design_name}}
 ### Run unit tests with coverage
 
 ```
-pytest
+pytest -s --cov=copy_cat
 ```
 
 ### Run linter
