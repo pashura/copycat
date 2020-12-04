@@ -7,6 +7,7 @@ class RequirementsValidator:
         self.errors = []
 
     def validate(self, schema, test_data):
+        self.errors = []
         self._validate_requirements(schema, test_data)
         return self.errors
 
