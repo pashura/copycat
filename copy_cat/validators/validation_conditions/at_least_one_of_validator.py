@@ -3,10 +3,9 @@ from copy_cat.utils import get_test_data_object
 
 
 class AtLeastOneOfValidator:
-    def __init__(self):
-        self.errors = []
-
-    def validate(self, validations: list, test_data: list, location: list) -> list:
+    @staticmethod
+    def validate(validations: list, test_data: list, location: list) -> list:
+        errors = []
         for validation in validations:
             conditions = validation['rules'][0]['conditions']
             satisfied = False
@@ -19,6 +18,6 @@ class AtLeastOneOfValidator:
             if not satisfied:
                 elements = [f'{el["element"]}{"=" + el["value"] if el["value"] else ""}' for el in conditions]
                 error_message = f'At least one of {",".join(elements)} is required'
-                self.errors.append(Error(fieldName="", designPath=location, xpath="", errorMessage=error_message))
+                errors.append(Error(fieldName="", designPath=location, xpath="", errorMessage=error_message))
 
-        return self.errors
+        return errors

@@ -7,6 +7,7 @@ class ChoicesValidator:
         self.errors = []
 
     def validate(self, design_object, test_data_object):
+        self.errors = []
         self.validate_choices(design_object, test_data_object)
         return self.errors
 
