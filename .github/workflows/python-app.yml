@@ -30,3 +30,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Heroku
+        uses: AkhileshNS/heroku-deploy@v3.6.8
