@@ -3,9 +3,9 @@ from copy_cat.models.base import BaseError
 
 class Error(BaseError):
     fieldName: str
-    fieldPath: str
+    designPath: str
     xpath: str
-    error: str
+    errorMessage: str
 
     # parent: str   -> this can help on UI to show error
 

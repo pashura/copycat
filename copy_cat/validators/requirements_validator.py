@@ -17,8 +17,8 @@ class RequirementsValidator:
                     # TODO: Fix error message to be similar to web xd
                     error_message = f"Missing mandatory {child['name']} in {schema['name']} record"
                     self.errors.append(Error(fieldName="",
-                                             fieldPath=child['location'],
+                                             designPath=child['location'],
                                              xpath="",
-                                             error=error_message))
+                                             errorMessage=error_message))
 
             self._validate_requirements(child, test_data)

@@ -21,7 +21,7 @@ class Validator:
 
     def validate(self, schema, test_data):
         for ind, t in enumerate(test_data):
-            location = t.location[9:]
+            location = '/'.join(t.location.split('/')[2:])
             location, reps = self._get_reps_and_location(location)
 
             el = traverse_path_in_schema_object(schema, location)

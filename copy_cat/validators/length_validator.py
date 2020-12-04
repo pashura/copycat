@@ -19,6 +19,6 @@ class LengthValidator:
             error_message = f"Given data: '{test_data_object.value}' with length {test_data_object.length} " \
                             f"is bigger then max length of the element - " + expected_length
             self.errors.append(Error(fieldName=test_data_object.name,
-                                     fieldPath=design_object['location'],
+                                     designPath=design_object['location'],
                                      xpath=test_data_object.location,
-                                     error=error_message))
+                                     errorMessage=error_message))

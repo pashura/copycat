@@ -19,6 +19,6 @@ class ChoicesValidator:
                 error_message = f"Qualifier {test_data_object.value} is not valid. " \
                                 f"Possible choices -> {qualifiers}"
                 self.errors.append(Error(fieldName=test_data_object.name,
-                                         fieldPath=design_object['location'],
+                                         designPath=design_object['location'],
                                          xpath=test_data_object.location,
-                                         error=error_message))
+                                         errorMessage=error_message))

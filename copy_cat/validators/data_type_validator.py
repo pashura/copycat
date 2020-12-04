@@ -26,9 +26,9 @@ class DataTypeValidator:
             if data_type_ == 'String':
                 error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. Found -> '{data_type_}'"
                 self.errors.append(Error(fieldName=test_data_object.name,
-                                         fieldPath=design_object['location'],
+                                         designPath=design_object['location'],
                                          xpath=test_data_object.location,
-                                         error=error_message))
+                                         errorMessage=error_message))
 
         # Float validator
         if expected_data_type == 'Decimal':
@@ -37,9 +37,9 @@ class DataTypeValidator:
                 error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. " \
                                 f"Found -> '{data_type_}'"
                 self.errors.append(Error(fieldName=test_data_object.name,
-                                         fieldPath=design_object['location'],
+                                         designPath=design_object['location'],
                                          xpath=test_data_object.location,
-                                         error=error_message))
+                                         errorMessage=error_message))
 
         # Integer validator
         if expected_data_type == 'Integer':
@@ -48,9 +48,9 @@ class DataTypeValidator:
                 error_message = f"DataType is incorrect. Should be -> '{expected_data_type}'. " \
                                 f"Found -> '{data_type_}'"
                 self.errors.append(Error(fieldName=test_data_object.name,
-                                         fieldPath=design_object['location'],
+                                         designPath=design_object['location'],
                                          xpath=test_data_object.location,
-                                         error=error_message))
+                                         errorMessage=error_message))
 
     @staticmethod
     def _get_date_format(date_string: str) -> datetime:
