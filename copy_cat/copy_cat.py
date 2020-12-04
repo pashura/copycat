@@ -1,5 +1,6 @@
 import json
 
+from copy_cat.models.test_data import TestDataObject
 from copy_cat.parsers.json_parser import JSONParser
 from copy_cat.parsers.xml_parser import XMLParser
 from copy_cat.validators.validator import Validator
@@ -8,7 +9,6 @@ from copy_cat.validators.validator import Validator
 class CopyCat:
     def __init__(self):
         self.validator = Validator()
-        self.errors = []
 
     def run(self, design, body):
         # TODO: Move to local_run
@@ -25,10 +25,9 @@ class CopyCat:
         with open('tmp.xml', 'r') as f:
             test_data = XMLParser(f).parse()
 
-        flatten_result = JSONParser(test_data).parse()
+        flatten_result = [TestDataObject(**result) for result in JSONParser(test_data).parse()]
 
-        self.validator.validate(flatten_result, design)
-        self.errors = self.validator.errors
+        self.validator.validate(design, flatten_result)
 
     def _add_locations(self, schema_object):
         for child in schema_object['children']:

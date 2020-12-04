@@ -37,14 +37,14 @@ def test_parse_returns_json_object():
                                 "text": "009ACH1G1A1G1",
                                 "length": 13,
                                 "location": "/Invoice/Header/InvoiceHeader/TradingPartnerId",
-                                "type": " 'str'"
+                                "type": "str"
                             },
                             {
                                 "name": "InvoiceNumber",
                                 "text": "4714370244",
                                 "length": 10,
                                 "location": "/Invoice/Header/InvoiceHeader/InvoiceNumber",
-                                "type": " 'int'"
+                                "type": "int"
                             }
                         ]
                     }
@@ -61,14 +61,14 @@ def test_parse_returns_json_object():
                                 "text": "081070041",
                                 "length": 9,
                                 "location": "/Invoice/LineItem/InvoiceLine/BuyerPartNumber",
-                                "type": " 'int'"
+                                "type": "int"
                             },
                             {
                                 "name": "VendorPartNumber",
                                 "text": "85401-SL",
                                 "length": 8,
                                 "location": "/Invoice/LineItem/InvoiceLine/VendorPartNumber",
-                                "type": " 'str'"
+                                "type": "str"
                             }
                         ]
                     }
@@ -82,7 +82,7 @@ def test_parse_returns_json_object():
                         "text": "31.28",
                         "length": 5,
                         "location": "/Invoice/Summary/TotalAmount",
-                        "type": " 'float'"
+                        "type": "float"
                     }
                 ]
             }

@@ -34,4 +34,4 @@ def run(org_id, design_name):
     td_service = TDService('test', token)
     design = td_service.get_reversed_design(org_id, design_name)
     cc.run(design, request.data)
-    return jsonify(cc.errors)
+    return jsonify(cc.validator.errors_container.errors())

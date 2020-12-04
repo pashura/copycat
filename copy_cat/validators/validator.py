@@ -1,39 +1,39 @@
 import re
 
 from copy_cat.constants import XPATH_GROUPS_REGEX, XPATH_REP_REGEX
+from copy_cat.containers.errors_container import ErrorsContainer
 from copy_cat.utils import traverse_path_in_schema_object
 from copy_cat.validators.choices_validator import ChoicesValidator
 from copy_cat.validators.data_type_validator import DataTypeValidator
 from copy_cat.validators.length_validator import LengthValidator
 from copy_cat.validators.requirements_validator import RequirementsValidator
+from copy_cat.validators.validation_conditions.validator import ValidationConditionsValidator
 
 
 class Validator:
     def __init__(self):
-        self.errors = []
+        self.errors_container = ErrorsContainer()
         self.requirements_validator = RequirementsValidator()
         self.data_type_validator = DataTypeValidator()
         self.choices_validator = ChoicesValidator()
         self.length_validator = LengthValidator()
+        self.validation_conditions_validator = ValidationConditionsValidator()
 
-    def validate(self, test_data, schema):
+    def validate(self, schema, test_data):
         for ind, t in enumerate(test_data):
-            location = t.get('location')[9:]
+            location = t.location[9:]
             location, reps = self._get_reps_and_location(location)
 
             el = traverse_path_in_schema_object(schema, location)
             if not el:
                 print(location + " is not in design")
             else:
-                self.data_type_validator.validate(el, t)
-                self.length_validator.validate(el, t)
-                self.choices_validator.validate(el, t)
+                self.errors_container.extend(self.data_type_validator.validate(el, t))
+                self.errors_container.extend(self.length_validator.validate(el, t))
+                self.errors_container.extend(self.choices_validator.validate(el, t))
 
-        self.requirements_validator.validate(test_data, schema)
-        self.errors += [
-            *self.requirements_validator.errors, *self.data_type_validator.errors, *self.length_validator.errors,
-            *self.choices_validator.errors
-        ]
+        self.errors_container.extend(self.requirements_validator.validate(schema, test_data))
+        self.errors_container.extend(self.validation_conditions_validator.validate(schema, test_data))
 
     @staticmethod
     def _get_reps_and_location(location):

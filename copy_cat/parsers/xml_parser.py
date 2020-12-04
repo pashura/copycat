@@ -40,6 +40,4 @@ class XMLParser:
     def _guess_type(elem) -> str:
         objectify.annotate(elem)
         dumped = objectify.dump(elem).split('*')
-        if len(dumped) > 0:
-            return dumped[1].split('=')[1]
-        return ''
+        return dumped[1].split('\'')[1] if len(dumped) > 0 else ''

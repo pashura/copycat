@@ -1,3 +1,8 @@
+import re
+
+from copy_cat.constants import XPATH_REP_REGEX
+
+
 def traverse_path_in_schema_object(schema_object: dict, path_to_traverse: str) -> dict:
     current_object = schema_object
     if path_to_traverse:
@@ -23,3 +28,11 @@ def get_schema_object_name(schema_object):
 
 def find_dictionary(lst, key, value):
     return next((dic for dic in (lst or []) if dic.get(key) == value), None)
+
+
+def get_test_data_object(test_data, location):
+    return next((i for i in test_data if get_path_from_location(i.location) == location), None)
+
+
+def get_path_from_location(location):
+    return re.sub(XPATH_REP_REGEX, '', location.removeprefix("/"))
