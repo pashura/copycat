@@ -1,13 +1,10 @@
 from copy_cat.models.error import Error
 from copy_cat.utils import find_dictionary
+from copy_cat.validators.abstract_validator import AbstractValidator
 
 
-class ChoicesValidator:
-    def __init__(self):
-        self.errors = []
-
+class ChoicesValidator(AbstractValidator):
     def validate(self, design_object, test_data_object):
-        self.errors = []
         self.validate_choices(design_object, test_data_object)
         return self.errors
 

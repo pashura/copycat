@@ -1,13 +1,10 @@
 from copy_cat.models.error import Error
 from copy_cat.utils import get_test_data_object
+from copy_cat.validators.abstract_validator import AbstractValidator
 
 
-class RequirementsValidator:
-    def __init__(self):
-        self.errors = []
-
+class RequirementsValidator(AbstractValidator):
     def validate(self, schema, test_data):
-        self.errors = []
         self._validate_requirements(schema, test_data)
         return self.errors
 

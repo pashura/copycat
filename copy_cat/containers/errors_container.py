@@ -1,7 +1,8 @@
 from copy_cat.models.error import Error
+from copy_cat.singleton import Singleton
 
 
-class ErrorsContainer:
+class ErrorsContainer(metaclass=Singleton):
     def __init__(self):
         self.__errors = []
 

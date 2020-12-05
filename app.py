@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
+from copy_cat.containers.errors_container import ErrorsContainer
 from copy_cat.copy_cat import CopyCat
 from copy_cat.services.identity_service import IdentityService
 from copy_cat.services.td_service import TDService
@@ -46,4 +47,4 @@ def run(org_id, design_name):
     td_service = TDService('test', token)
     design = td_service.get_reversed_design(org_id, design_name)
     cc.run(design, request.data)
-    return jsonify(cc.validator.errors_container.errors())
+    return jsonify(ErrorsContainer().errors())
