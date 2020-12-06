@@ -20,21 +20,21 @@ class Validator(AbstractValidator):
         self.length_validator = LengthValidator()
         self.validation_conditions_validator = ValidationConditionsValidator()
 
-    def validate(self, schema, test_data):
-        for ind, t in enumerate(test_data):
-            location = '/'.join(t.location.split('/')[2:])
+    def validate(self, design, test_data):
+        for test_data_obj in test_data:
+            location = '/'.join(test_data_obj.location.split('/')[2:])
             location, reps = self._get_reps_and_location(location)
 
-            el = traverse_path_in_schema_object(schema, location)
-            if not el:
+            design_object = traverse_path_in_schema_object(design, location)
+            if not design_object:
                 print(location + " is not in design")
-            else:
-                self.data_type_validator.validate(el, t)
-                self.length_validator.validate(el, t)
-                self.choices_validator.validate(el, t)
+            elif design_object.get('visible'):
+                self.data_type_validator.validate(design_object, test_data_obj)
+                self.length_validator.validate(design_object, test_data_obj)
+                self.choices_validator.validate(design_object, test_data_obj)
 
-        self.requirements_validator.validate(schema, test_data)
-        self.validation_conditions_validator.validate(schema, test_data)
+        self.requirements_validator.validate(design, test_data)
+        self.validation_conditions_validator.validate(design, test_data)
 
     @staticmethod
     def _get_reps_and_location(location):
