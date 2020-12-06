@@ -1,9 +1,8 @@
 import collections
 
-from copy_cat.validators.validation_conditions import (
-    UnsupportedValidationConditionTypeError,
-    validation_condition_factory
-)
+from copy_cat.models.validation_condition import ValidationCondition
+from copy_cat.validators.validation_conditions import validation_condition_factory
+from copy_cat.validators.validation_conditions.exceptions import UnsupportedValidationConditionTypeError
 
 
 class ValidationConditionsValidator:
@@ -27,11 +26,11 @@ class ValidationConditionsValidator:
                     validator = validation_condition_factory(conditions_type)
                     self.errors.extend(validator.validate(conditions, test_data, child['location']))
                 except UnsupportedValidationConditionTypeError:
-                    pass
+                    print(f'Conditions {conditions_type} skipped')
 
     @staticmethod
     def _get_grouped_validation_conditions(validation_conditions: list) -> dict:
         grouped_validation_conditions = collections.defaultdict(list)
         for condition in validation_conditions:
-            grouped_validation_conditions[condition['type']].append(condition)
+            grouped_validation_conditions[condition['type']].append(ValidationCondition(**condition))
         return grouped_validation_conditions
