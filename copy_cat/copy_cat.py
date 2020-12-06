@@ -1,6 +1,6 @@
 import json
 
-from copy_cat.models.test_data import TestDataObject
+from copy_cat.models.test_data import DataObject
 from copy_cat.parsers.json_parser import JSONParser
 from copy_cat.parsers.xml_parser import XMLParser
 from copy_cat.validators.validator import Validator
@@ -25,7 +25,7 @@ class CopyCat:
         with open('tmp.xml', 'r') as f:
             test_data = XMLParser(f).parse()
 
-        flatten_result = [TestDataObject(**result) for result in JSONParser(test_data).parse()]
+        flatten_result = [DataObject(**result) for result in JSONParser(test_data).parse()]
 
         self.validator.validate(design, flatten_result)
 

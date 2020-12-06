@@ -36,7 +36,7 @@ def check_design(design_name):
 
 
 @app.route('/validate/org_id/<org_id>/design/<design_name>', methods=['POST'])
-@cross_origin(origin='*', headers=['Content-Type','Authorization'])
+@cross_origin(origin='*', headers=['Content-Type', 'Authorization'])
 def run(org_id, design_name):
     cc = CopyCat()
 

@@ -1,4 +1,5 @@
 from typing import List
+
 from copy_cat.models.base import BaseValidationCondition
 
 
