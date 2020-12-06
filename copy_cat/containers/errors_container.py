@@ -1,7 +1,8 @@
 from copy_cat.models.error import Error
+from copy_cat.singleton import Singleton
 
 
-class ErrorsContainer:
+class ErrorsContainer(metaclass=Singleton):
     def __init__(self):
         self.__errors = []
 
@@ -13,3 +14,6 @@ class ErrorsContainer:
 
     def extend(self, errors: list[Error]):
         self.__errors.extend(errors)
+
+    def clean(self):
+        self.__errors = []
