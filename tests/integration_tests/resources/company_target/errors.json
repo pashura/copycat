@@ -1,0 +1,44 @@
+[
+  {
+    "fieldName": "TradingPartnerId",
+    "designPath": "Invoice/Header/InvoiceHeader/TradingPartnerId",
+    "xpath": "/Invoice/Header/InvoiceHeader/TradingPartnerId",
+    "errorMessage": "Given data: 'TradingP_DS_000123' with length 18 is bigger then max length of the element - 15"
+  },
+  {
+    "fieldName": "PrimaryPOTypeCode",
+    "designPath": "Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
+    "xpath": "/Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
+    "errorMessage": "Qualifier ZZ is not valid. Possible choices -> ['DS']"
+  },
+  {
+    "fieldName": "ShipDate",
+    "designPath": "Invoice/Header/InvoiceHeader/ShipDate",
+    "xpath": "/Invoice/Header/InvoiceHeader/ShipDate",
+    "errorMessage": "DataType is incorrect. Should be -> 'Date'. Found -> 'String'"
+  },
+  {
+    "fieldName": "ShipTime",
+    "designPath": "Invoice/Header/InvoiceHeader/ShipTime",
+    "xpath": "/Invoice/Header/InvoiceHeader/ShipTime",
+    "errorMessage": "DataType is incorrect. Should be -> 'Time'. Found -> 'String'"
+  },
+  {
+    "fieldName": "TermsDiscountAmount",
+    "designPath": "Invoice/Header/PaymentTerms/TermsDiscountAmount",
+    "xpath": "/Invoice/Header/PaymentTerms[1]/TermsDiscountAmount",
+    "errorMessage": "DataType is incorrect. Should be -> 'Decimal'. Found -> 'str'"
+  },
+  {
+    "fieldName": "TotalAmount",
+    "designPath": "Invoice/Summary/TotalAmount",
+    "xpath": "/Invoice/Summary/TotalAmount",
+    "errorMessage": "DataType is incorrect. Should be -> 'Decimal'. Found -> 'str'"
+  },
+  {
+    "fieldName": "",
+    "designPath": "Invoice/Header/InvoiceHeader/InvoiceNumber",
+    "xpath": "",
+    "errorMessage": "Missing mandatory InvoiceNumber in InvoiceHeader record"
+  }
+]

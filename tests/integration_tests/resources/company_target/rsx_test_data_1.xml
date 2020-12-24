@@ -4,17 +4,15 @@
     </Meta>
     <Header>
         <InvoiceHeader>
-            <TradingPartnerId>TradingP_DS_000</TradingPartnerId>
-            <InvoiceNumber>InvoiceNumberIn_DS_000</InvoiceNumber>
+            <TradingPartnerId>TradingP_DS_000123</TradingPartnerId>
             <InvoiceDate>2000-06-22</InvoiceDate>
             <PurchaseOrderNumber>PurchaseOrderNu_DS_000</PurchaseOrderNumber>
-            <PrimaryPOTypeCode>DS</PrimaryPOTypeCode>
+            <PrimaryPOTypeCode>ZZ</PrimaryPOTypeCode>
             <Department>DepartmentDepartmentDep_DS_000</Department>
             <Vendor>VendorVendorVendorVendo_DS_000</Vendor>
-            <CarrierProNumber>CarrierProNumberCarrier_DS_000</CarrierProNumber>
             <BillOfLadingNumber>BillOfLadingNumberBillO_DS_000</BillOfLadingNumber>
-            <ShipDate>1985-07-18</ShipDate>
-            <ShipTime>14:00</ShipTime>
+            <ShipDate>1985-07-1a</ShipDate>
+            <ShipTime>14:0a</ShipTime>
         </InvoiceHeader>
         <PaymentTerms>
             <TermsType>01</TermsType>
@@ -24,7 +22,7 @@
             <TermsDiscountDueDays>103</TermsDiscountDueDays>
             <TermsNetDueDate>2017-11-16</TermsNetDueDate>
             <TermsNetDueDays>106</TermsNetDueDays>
-            <TermsDiscountAmount>0000004.80</TermsDiscountAmount>
+            <TermsDiscountAmount>0000004.v0</TermsDiscountAmount>
         </PaymentTerms>
         <PaymentTerms>
             <TermsType>02</TermsType>
@@ -252,7 +250,7 @@
         </ChargesAllowances>
     </LineItem>
     <Summary>
-        <TotalAmount>000000000003.54</TotalAmount>
+        <TotalAmount>000000000s03.54</TotalAmount>
         <TotalSalesAmount>000000000006.00</TotalSalesAmount>
         <TotalLineItemNumber>100004</TotalLineItemNumber>
     </Summary>

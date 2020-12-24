@@ -39,7 +39,7 @@ class RequirementsValidator(AbstractValidator):
     def _validate_requirements(self, design_object: dict, test_data: list[DataObject], active_paths):
         if not design_object.get('children') and not get_test_data_object(test_data, design_object.get('location')):
             # TODO: Fix error message to be similar to web xd
-            error_message = f"Missing mandatory {design_object['name']} in {design_object['name']} record"
+            error_message = f"Missing mandatory {design_object['name']} in {design_object['parent']['name']} record"
             self.errors_container.append(Error(fieldName="",
                                                designPath=design_object['location'],
                                                xpath="",
