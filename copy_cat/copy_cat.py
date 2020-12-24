@@ -18,7 +18,7 @@ class CopyCat:
         # with open('resources/company_target-Invoice-RSX-test-2.xml', 'r') as file_data:
         #     test_data = main_(file_data)
 
-        design = json.loads(design)
+        design =  json.loads(design)
         self._add_locations(design)
         self._add_parent_info(design)
         self._clean_up_invisible_nodes(design)
