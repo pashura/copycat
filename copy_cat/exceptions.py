@@ -10,5 +10,9 @@ class NotFoundError(ServiceError, FileNotFoundError):
     """Exception raised when resource is not found on the server"""
 
 
+class BadRequestError(ServiceError):
+    """Exception raised when request is incorrect"""
+
+
 class DesignReaderException(ServiceError):
     """Exception raised when we have troubles inside DesignReader"""
