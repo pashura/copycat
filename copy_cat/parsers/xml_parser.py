@@ -17,15 +17,15 @@ class XMLParser:
     def xml_to_json(self, elem, parent, tree):
         if not parent:
             parent['name'] = elem.tag
+            parent['location'] = tree.getpath(elem)
             parent['children'] = []
             for child in list(elem):
                 self.xml_to_json(child, parent, tree)
         else:
-            this = {'name': elem.tag}
+            this = {'name': elem.tag, 'location': tree.getpath(elem)}
             if elem.text and isinstance(elem.text, str) and not elem.text.isspace():
                 this['text'] = elem.text
                 this['length'] = len(elem.text)
-                this['location'] = tree.getpath(elem)
                 if elem.text in ["true", "false"]:
                     this['text'] = bool(util.strtobool(elem.text))
                 this['type'] = self._guess_type(elem)

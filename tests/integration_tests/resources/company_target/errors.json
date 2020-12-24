@@ -24,21 +24,21 @@
     "errorMessage": "DataType is incorrect. Should be -> 'Time'. Found -> 'String'"
   },
   {
-    "fieldName": "TermsDiscountAmount",
-    "designPath": "Invoice/Header/PaymentTerms/TermsDiscountAmount",
-    "xpath": "/Invoice/Header/PaymentTerms[1]/TermsDiscountAmount",
-    "errorMessage": "DataType is incorrect. Should be -> 'Decimal'. Found -> 'str'"
-  },
-  {
-    "fieldName": "TotalAmount",
-    "designPath": "Invoice/Summary/TotalAmount",
-    "xpath": "/Invoice/Summary/TotalAmount",
-    "errorMessage": "DataType is incorrect. Should be -> 'Decimal'. Found -> 'str'"
-  },
-  {
     "fieldName": "",
     "designPath": "Invoice/Header/InvoiceHeader/InvoiceNumber",
     "xpath": "",
     "errorMessage": "Missing mandatory InvoiceNumber in InvoiceHeader record"
+  },
+  {
+    "fieldName": "",
+    "designPath": "Invoice/Header/PaymentTerms",
+    "xpath": "",
+    "errorMessage": "Missing mandatory PaymentTerms record"
+  },
+  {
+    "fieldName": "",
+    "designPath": "Invoice/Summary",
+    "xpath": "",
+    "errorMessage": "Missing mandatory Summary record"
   }
 ]

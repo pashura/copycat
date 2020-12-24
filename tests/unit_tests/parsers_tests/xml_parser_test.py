@@ -24,69 +24,75 @@ def test_parse_returns_json_object():
         </Invoice>
     """
     expected_result = {
-        "name": "Invoice",
         "children": [
             {
-                "name": "Header",
                 "children": [
                     {
-                        "name": "InvoiceHeader",
                         "children": [
                             {
-                                "name": "TradingPartnerId",
-                                "text": "009ACH1G1A1G1",
                                 "length": 13,
                                 "location": "/Invoice/Header/InvoiceHeader/TradingPartnerId",
+                                "name": "TradingPartnerId",
+                                "text": "009ACH1G1A1G1",
                                 "type": "str"
                             },
                             {
-                                "name": "InvoiceNumber",
-                                "text": "4714370244",
                                 "length": 10,
                                 "location": "/Invoice/Header/InvoiceHeader/InvoiceNumber",
+                                "name": "InvoiceNumber",
+                                "text": "4714370244",
                                 "type": "int"
                             }
-                        ]
+                        ],
+                        "location": "/Invoice/Header/InvoiceHeader",
+                        "name": "InvoiceHeader"
                     }
-                ]
+                ],
+                "location": "/Invoice/Header",
+                "name": "Header"
             },
             {
-                "name": "LineItem",
                 "children": [
                     {
-                        "name": "InvoiceLine",
                         "children": [
                             {
-                                "name": "BuyerPartNumber",
-                                "text": "081070041",
                                 "length": 9,
                                 "location": "/Invoice/LineItem/InvoiceLine/BuyerPartNumber",
+                                "name": "BuyerPartNumber",
+                                "text": "081070041",
                                 "type": "int"
                             },
                             {
-                                "name": "VendorPartNumber",
-                                "text": "85401-SL",
                                 "length": 8,
                                 "location": "/Invoice/LineItem/InvoiceLine/VendorPartNumber",
+                                "name": "VendorPartNumber",
+                                "text": "85401-SL",
                                 "type": "str"
                             }
-                        ]
+                        ],
+                        "location": "/Invoice/LineItem/InvoiceLine",
+                        "name": "InvoiceLine"
                     }
-                ]
+                ],
+                "location": "/Invoice/LineItem",
+                "name": "LineItem"
             },
             {
-                "name": "Summary",
                 "children": [
                     {
-                        "name": "TotalAmount",
-                        "text": "31.28",
                         "length": 5,
                         "location": "/Invoice/Summary/TotalAmount",
+                        "name": "TotalAmount",
+                        "text": "31.28",
                         "type": "float"
                     }
-                ]
+                ],
+                "location": "/Invoice/Summary",
+                "name": "Summary"
             }
-        ]
+        ],
+        "location": "/Invoice",
+        "name": "Invoice"
     }
     result = XMLParser(io.StringIO(xml_data)).parse()
     assert result == expected_result

@@ -14,36 +14,6 @@
             <ShipDate>1985-07-1a</ShipDate>
             <ShipTime>14:0a</ShipTime>
         </InvoiceHeader>
-        <PaymentTerms>
-            <TermsType>01</TermsType>
-            <TermsBasisDateCode>2</TermsBasisDateCode>
-            <TermsDiscountPercentage>007.23</TermsDiscountPercentage>
-            <TermsDiscountDate>1993-10-18</TermsDiscountDate>
-            <TermsDiscountDueDays>103</TermsDiscountDueDays>
-            <TermsNetDueDate>2017-11-16</TermsNetDueDate>
-            <TermsNetDueDays>106</TermsNetDueDays>
-            <TermsDiscountAmount>0000004.v0</TermsDiscountAmount>
-        </PaymentTerms>
-        <PaymentTerms>
-            <TermsType>02</TermsType>
-            <TermsBasisDateCode>3</TermsBasisDateCode>
-            <TermsDiscountPercentage>004.05</TermsDiscountPercentage>
-            <TermsDiscountDate>1993-08-24</TermsDiscountDate>
-            <TermsDiscountDueDays>109</TermsDiscountDueDays>
-            <TermsNetDueDate>1987-04-12</TermsNetDueDate>
-            <TermsNetDueDays>107</TermsNetDueDays>
-            <TermsDiscountAmount>0000004.89</TermsDiscountAmount>
-        </PaymentTerms>
-        <PaymentTerms>
-            <TermsType>14</TermsType>
-            <TermsBasisDateCode>2</TermsBasisDateCode>
-            <TermsDiscountPercentage>006.80</TermsDiscountPercentage>
-            <TermsDiscountDate>1972-09-12</TermsDiscountDate>
-            <TermsDiscountDueDays>109</TermsDiscountDueDays>
-            <TermsNetDueDate>1999-10-22</TermsNetDueDate>
-            <TermsNetDueDays>105</TermsNetDueDays>
-            <TermsDiscountAmount>0000006.19</TermsDiscountAmount>
-        </PaymentTerms>
         <Address>
             <AddressTypeCode>BY</AddressTypeCode>
             <LocationCodeQualifier>91</LocationCodeQualifier>
@@ -249,9 +219,4 @@
             <AllowChrgHandlingDescription>AllowChrgHandlingDescriptionAllowChrgHandlingDescriptionAllowChrgHandlingD_C_011</AllowChrgHandlingDescription>
         </ChargesAllowances>
     </LineItem>
-    <Summary>
-        <TotalAmount>000000000s03.54</TotalAmount>
-        <TotalSalesAmount>000000000006.00</TotalSalesAmount>
-        <TotalLineItemNumber>100004</TotalLineItemNumber>
-    </Summary>
 </Invoice>

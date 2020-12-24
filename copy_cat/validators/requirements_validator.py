@@ -18,17 +18,18 @@ class RequirementsValidator(AbstractValidator):
     def validate(self, design_object: dict, test_data: list[DataObject]):
         active_paths = list(set([get_reps_and_location('/'.join(data_object.location.split('/')[1:-1]))[0]
                                  for data_object in test_data]))
-        self._validate_conditions(design_object, test_data, active_paths)
+        self._validate_conditions(design_object, test_data)
         self._validate_children(design_object['children'], test_data, active_paths)
 
     def _validate_children(self, children: list, test_data: list[DataObject], active_paths):
         for child in children:
             if self._is_eligible_for_validation(child, active_paths):
-                self._validate_requirements(child, test_data, active_paths)
-                self._validate_conditions(child, test_data, active_paths)
+                self._validate_record_requirements(child, test_data)
+                self._validate_requirements(child, test_data)
+                self._validate_conditions(child, test_data)
             self._validate_children(child.get('children', []), test_data, active_paths)
 
-    def _validate_conditions(self, design_object: dict, test_data: list[DataObject], active_paths):
+    def _validate_conditions(self, design_object: dict, test_data: list[DataObject]):
         for c_type, conditions in self._get_grouped_validation_conditions(design_object.get('validation', [])).items():
             try:
                 validator = validation_condition_factory(c_type)
@@ -36,8 +37,19 @@ class RequirementsValidator(AbstractValidator):
             except UnsupportedValidationConditionTypeError:
                 print(f'Conditions {c_type} skipped')
 
-    def _validate_requirements(self, design_object: dict, test_data: list[DataObject], active_paths):
-        if not design_object.get('children') and not get_test_data_object(test_data, design_object.get('location')):
+    def _validate_record_requirements(self, design_object: dict, test_data: list[DataObject]):
+        if design_object.get('children') and not get_test_data_object(test_data, design_object.get('location')):
+            error_message = f"Missing mandatory {design_object['name']} record"
+            self.errors_container.append(Error(fieldName="",
+                                               designPath=design_object['location'],
+                                               xpath="",
+                                               errorMessage=error_message))
+            design_object['skipChildren'] = True
+
+    def _validate_requirements(self, design_object: dict, test_data: list[DataObject]):
+        if design_object['parent'].get('skipChildren'):
+            pass
+        elif not design_object.get('children') and not get_test_data_object(test_data, design_object.get('location')):
             # TODO: Fix error message to be similar to web xd
             error_message = f"Missing mandatory {design_object['name']} in {design_object['parent']['name']} record"
             self.errors_container.append(Error(fieldName="",
