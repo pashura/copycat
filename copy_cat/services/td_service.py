@@ -2,12 +2,12 @@ import requests
 import urllib3
 
 from copy_cat.exceptions import NotFoundError, ServiceError
+from copy_cat.services.ssm_service import SSMSecrets
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class TDService:
-
     __urls = {
         'local': 'https://design-ui-api.test.spsapps.net',
         'test': 'https://design-ui-api.test.spsapps.net',
@@ -15,15 +15,14 @@ class TDService:
     }
     __Token = None
 
-    def __init__(self, environment, token):
+    def __init__(self, environment='test'):
         self.environment = environment
-        self.token = token
         self.url = self.__urls[environment]
 
     @property
     def __token(self):
         if self.__Token is None:
-            self.__Token = self.token
+            self.__Token = SSMSecrets(self.environment).get_key("identity.token")
         return self.__Token
 
     def get_blank_design(self, file_type: str, version: str, file_name: str) -> dict:
