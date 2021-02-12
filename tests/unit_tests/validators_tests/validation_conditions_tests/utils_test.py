@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from copy_cat.models.test_data import DataObject
 from copy_cat.models.validation_condition import Condition, ValidationCondition
-from copy_cat.validators.validation_conditions.utils import get_successful_conditions_count, validate_condition
+from copy_cat.core.validators.validation_conditions.utils import get_successful_conditions_count, validate_condition
 from tests.unit_tests.validators_tests.validation_conditions_tests import (
     VALIDATION_CONDITION_IF_THEN_WITH_AND_CONJUNCTION
 )

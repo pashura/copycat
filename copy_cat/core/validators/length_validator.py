@@ -1,7 +1,7 @@
 from copy_cat.constants import IMPOSSIBLY_HUGE_LENGTH
 from copy_cat.models.error import Error
 from copy_cat.utils import find_dictionary
-from copy_cat.validators.abstract_validator import AbstractValidator
+from copy_cat.core.validators.abstract_validator import AbstractValidator
 
 
 class LengthValidator(AbstractValidator):

@@ -4,9 +4,9 @@ from copy_cat.models.error import Error
 from copy_cat.models.test_data import DataObject
 from copy_cat.models.validation_condition import ValidationCondition
 from copy_cat.utils import get_reps_and_location, get_test_data_object
-from copy_cat.validators.abstract_validator import AbstractValidator
-from copy_cat.validators.validation_conditions import (UnsupportedValidationConditionTypeError,
-                                                       validation_condition_factory)
+from copy_cat.core.validators.abstract_validator import AbstractValidator
+from copy_cat.core.validators.validation_conditions import (UnsupportedValidationConditionTypeError,
+                                                            validation_condition_factory)
 
 
 class RequirementsValidator(AbstractValidator):

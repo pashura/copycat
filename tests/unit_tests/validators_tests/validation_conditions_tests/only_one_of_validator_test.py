@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from copy_cat.models.error import Error
 from copy_cat.models.validation_condition import ValidationCondition
-from copy_cat.validators.validation_conditions import OnlyOneOfValidator
+from copy_cat.core.validators.validation_conditions import OnlyOneOfValidator
 from tests.unit_tests.validators_tests.validation_conditions_tests import VALIDATION_CONDITION_WITH_RULES
 
 

@@ -8,7 +8,8 @@ class XMLParser:
         self.xml_file = xml_file
 
     def parse(self):
-        tree = etree.parse(self.xml_file)
+        tree = etree.fromstring(self.xml_file)
+        tree = etree.ElementTree(tree)
         root = tree.getroot()
         doc = {}
         self.xml_to_json(root, doc, tree)
