@@ -1,10 +1,8 @@
 
 class JSONParser:
-    def __init__(self, json_obj):
-        self.json_obj = json_obj
 
-    def parse(self):
-        return self._flatten(self.json_obj)
+    def parse(self, json_obj):
+        return self._flatten(json_obj)
 
     def _flatten(self, current: dict, result=None):
         if result is None:

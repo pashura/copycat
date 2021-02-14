@@ -19,7 +19,7 @@ class TestIfThenValidator:
         self.validation_condition_and = ValidationCondition(**VALIDATION_CONDITION_IF_THEN_WITH_AND_CONJUNCTION)
 
     @patch.object(IfThenValidator, '_conditions_satisfied')
-    @patch('copy_cat.validators.validation_conditions.if_then_validator.ErrorsGenerator.generate')
+    @patch('copy_cat.core.validators.validation_conditions.if_then_validator.ErrorsGenerator.generate')
     def test_validate(self, mock_generate, mock__conditions_satisfied):
         expected = len(self.validator.errors_container.errors()) + 1
         mock_validations = [self.validation_condition_or, self.validation_condition_and]
@@ -28,7 +28,7 @@ class TestIfThenValidator:
         self.validator.validate(mock_validations, self.test_data, self.location)
         assert expected == len(self.validator.errors_container.errors())
 
-    @patch('copy_cat.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
+    @patch('copy_cat.core.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
     def test__conditions_satisfied__or_returns_true_when_count_is_not_zero(self, mock_get_successful_conditions_count):
         mock_get_successful_conditions_count.return_value = 1
         conditions = self.validation_condition_or.conditions[0]
@@ -36,7 +36,7 @@ class TestIfThenValidator:
         expected = True
         assert expected == actual
 
-    @patch('copy_cat.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
+    @patch('copy_cat.core.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
     def test__conditions_satisfied__or_returns_false_when_count_is_zero(self, mock_get_successful_conditions_count):
         mock_get_successful_conditions_count.return_value = 0
         conditions = self.validation_condition_or.conditions[0]
@@ -44,7 +44,7 @@ class TestIfThenValidator:
         expected = False
         assert expected == actual
 
-    @patch('copy_cat.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
+    @patch('copy_cat.core.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
     def test__conditions_satisfied__and_returns_true_when_count_equals_conditions_len(
             self, mock_get_successful_conditions_count
     ):
@@ -54,7 +54,7 @@ class TestIfThenValidator:
         expected = True
         assert expected == actual
 
-    @patch('copy_cat.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
+    @patch('copy_cat.core.validators.validation_conditions.if_then_validator.get_successful_conditions_count')
     def test__conditions_satisfied__and_returns_false_when_count_does_not_equals_conditions_len(
             self, mock_get_successful_conditions_count
     ):
