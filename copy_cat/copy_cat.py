@@ -21,9 +21,9 @@ class CopyCat:
         self._clean_up_invisible_nodes(design)
         self._clean_up_invisible_nodes(reversed_design)
 
-        test_data = XMLParser(body).parse()
+        test_data = XMLParser().parse(body)
 
-        flatten_result = [DataObject(**result) for result in JSONParser(test_data).parse()]
+        flatten_result = [DataObject(**result) for result in JSONParser().parse(test_data)]
 
         self.validator.validate(reversed_design, flatten_result)
         self.transformer.transform(design, reversed_design, flatten_result)
