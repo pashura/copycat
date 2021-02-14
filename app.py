@@ -34,4 +34,3 @@ def run(org_id, design_name):
     if len(cc.validator.errors_container.errors()):
         return jsonify(cc.validator.errors_container.errors())
     return cc.transformer.result
-    # return jsonify(cc.transformer.temp_res_list)
