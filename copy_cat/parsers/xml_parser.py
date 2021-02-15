@@ -4,11 +4,10 @@ from lxml import etree, objectify
 
 
 class XMLParser:
-    def __init__(self, xml_file):
-        self.xml_file = xml_file
 
-    def parse(self):
-        tree = etree.parse(self.xml_file)
+    def parse(self, xml_file):
+        tree = etree.fromstring(xml_file)
+        tree = etree.ElementTree(tree)
         root = tree.getroot()
         doc = {}
         self.xml_to_json(root, doc, tree)

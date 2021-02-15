@@ -1,7 +1,7 @@
 import boto3
 
 
-class SSMSecrets(object):
+class SSMSecrets:
     def __init__(self, env, region='us-east-1'):
         self.parameters = {}
         self.env = env

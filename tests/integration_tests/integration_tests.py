@@ -28,11 +28,11 @@ class IntegrationTestRun(unittest.TestCase):
         data = pre_load_data(self.RESOURCES_DIR)
 
         cc = CopyCat()
-        cc.run(data[0], data[1])
+        cc.run(data[0], data[0], data[1])
         assert cc.validator.errors_container.errors() == json.loads(data[3])
         cc.validator.errors_container.clean()
 
-        cc.run(data[0], data[2])
+        cc.run(data[0], data[0], data[2])
         assert cc.validator.errors_container.errors() == []
         cc.validator.errors_container.clean()
 

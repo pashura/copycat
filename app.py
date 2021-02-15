@@ -28,6 +28,9 @@ def run(org_id, design_name):
     cc = CopyCat()
 
     td_service = TDService()
-    design = td_service.get_reversed_design(org_id, design_name)
-    cc.run(design, request.data)
-    return jsonify(cc.validator.errors_container.errors())
+    design = td_service.get_design(org_id, design_name)
+    reversed_design = td_service.get_reversed_design(org_id, design_name)
+    cc.run(design, reversed_design, request.data)
+    if len(cc.validator.errors_container.errors()):
+        return jsonify(cc.validator.errors_container.errors())
+    return cc.transformer.result

@@ -1,8 +1,8 @@
 from copy_cat.models.test_data import DataObject
 from copy_cat.models.validation_condition import Conditions
-from copy_cat.validators.abstract_validator import AbstractValidator
-from copy_cat.validators.validation_conditions.errors_generator import ErrorsGenerator
-from copy_cat.validators.validation_conditions.utils import get_successful_conditions_count
+from copy_cat.core.validators.abstract_validator import AbstractValidator
+from copy_cat.core.validators.validation_conditions.errors_generator import ErrorsGenerator
+from copy_cat.core.validators.validation_conditions.utils import get_successful_conditions_count
 
 
 class IfThenValidator(AbstractValidator):

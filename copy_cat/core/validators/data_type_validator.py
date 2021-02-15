@@ -5,7 +5,7 @@ from dateutil.parser import parse as parse_date
 
 from copy_cat.models.error import Error
 from copy_cat.utils import find_dictionary
-from copy_cat.validators.abstract_validator import AbstractValidator
+from copy_cat.core.validators.abstract_validator import AbstractValidator
 
 
 class DataTypeValidator(AbstractValidator):

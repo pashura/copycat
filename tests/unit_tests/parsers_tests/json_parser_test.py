@@ -195,5 +195,5 @@ def test_parse_returns_flatten_object():
             "text": "31.28"
         }
     ]
-    result = JSONParser(json_obj).parse()
+    result = JSONParser().parse(json_obj)
     assert result == expected_result

@@ -94,5 +94,5 @@ def test_parse_returns_json_object():
         "location": "/Invoice",
         "name": "Invoice"
     }
-    result = XMLParser(io.StringIO(xml_data)).parse()
+    result = XMLParser().parse(xml_data)
     assert result == expected_result

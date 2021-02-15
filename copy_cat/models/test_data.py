@@ -13,5 +13,8 @@ class DataObject(BaseDesign):
     location: Optional[str]
     children: Optional[List['DataObject']]
 
+    used: Optional[bool]
+    index: Optional[int]
+
 
 DataObject.update_forward_refs()

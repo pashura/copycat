@@ -1,35 +1,32 @@
 import json
 
+from copy_cat.core.transformer.transformer import Transformer
 from copy_cat.models.test_data import DataObject
 from copy_cat.parsers.json_parser import JSONParser
 from copy_cat.parsers.xml_parser import XMLParser
-from copy_cat.validators.validator import Validator
+from copy_cat.core.validators.validator import Validator
 
 
 class CopyCat:
     def __init__(self):
         self.validator = Validator()
+        self.transformer = Transformer()
 
-    def run(self, design, body):
-        # TODO: Move to local_run
-        # with open('resources/target_invoice_rsx.json', 'r') as file_data:
-        #     design = json.load(file_data)
-
-        # with open('resources/company_target-Invoice-RSX-test-2.xml', 'r') as file_data:
-        #     test_data = main_(file_data)
-
-        design =  json.loads(design)
+    def run(self, design, reversed_design, body):
+        design = json.loads(design)
+        reversed_design = json.loads(reversed_design)
         self._add_locations(design)
-        self._add_parent_info(design)
+        self._add_locations(reversed_design)
+        self._add_parent_info(reversed_design)
         self._clean_up_invisible_nodes(design)
-        with open('tmp.xml', 'wb') as f:
-            f.write(body)
-        with open('tmp.xml', 'r') as f:
-            test_data = XMLParser(f).parse()
+        self._clean_up_invisible_nodes(reversed_design)
 
-        flatten_result = [DataObject(**result) for result in JSONParser(test_data).parse()]
+        test_data = XMLParser().parse(body)
 
-        self.validator.validate(design, flatten_result)
+        flatten_result = [DataObject(**result) for result in JSONParser().parse(test_data)]
+
+        self.validator.validate(reversed_design, flatten_result)
+        self.transformer.transform(design, reversed_design, flatten_result)
 
     def _add_parent_info(self, schema_object):
         for child in schema_object['children']:

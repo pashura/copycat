@@ -1,0 +1,5 @@
+
+InvoiceNumber:123123  Invalid data 067 in DateTimeQualifier in line 15, column 46. The value '067' is not one of the possible choices [011:Actual Ship] in DateTimeQualifier
+InvoiceNumber:123123  Missing element: expect DateTimeQualifier before ending Dates in line 16,column 11
+
+InvoiceNumber:123123  Time does not have a valid time format. Time format must be hh:mm:ss

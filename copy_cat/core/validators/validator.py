@@ -1,9 +1,9 @@
 from copy_cat.utils import get_reps_and_location, traverse_path_in_schema_object
-from copy_cat.validators.abstract_validator import AbstractValidator
-from copy_cat.validators.choices_validator import ChoicesValidator
-from copy_cat.validators.data_type_validator import DataTypeValidator
-from copy_cat.validators.length_validator import LengthValidator
-from copy_cat.validators.requirements_validator import RequirementsValidator
+from copy_cat.core.validators.abstract_validator import AbstractValidator
+from copy_cat.core.validators.choices_validator import ChoicesValidator
+from copy_cat.core.validators.data_type_validator import DataTypeValidator
+from copy_cat.core.validators.length_validator import LengthValidator
+from copy_cat.core.validators.requirements_validator import RequirementsValidator
 
 
 class Validator(AbstractValidator):
