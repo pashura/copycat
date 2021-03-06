@@ -1,6 +1,7 @@
+from copy_cat.core.validators.abstract_validator import AbstractValidator
+from copy_cat.enums.error_type import ErrorType
 from copy_cat.models.error import Error
 from copy_cat.utils import find_dictionary
-from copy_cat.core.validators.abstract_validator import AbstractValidator
 
 
 class ChoicesValidator(AbstractValidator):
@@ -15,7 +16,12 @@ class ChoicesValidator(AbstractValidator):
                 # TODO: Fix error message to be similar to web xd
                 error_message = f"Qualifier {test_data_object.value} is not valid. " \
                                 f"Possible choices -> {qualifiers}"
-                self.errors_container.append(Error(fieldName=test_data_object.name,
-                                                   designPath=design_object['location'],
-                                                   xpath=test_data_object.location,
-                                                   errorMessage=error_message))
+                self.errors_container.append(
+                    Error(
+                        fieldName=test_data_object.name,
+                        designPath=design_object['location'],
+                        xpath=test_data_object.location,
+                        errorMessage=error_message,
+                        errorType=ErrorType.CHOICES
+                    )
+                )

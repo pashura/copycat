@@ -1,3 +1,4 @@
+from copy_cat.enums.error_type import ErrorType
 from copy_cat.models.error import Error
 from copy_cat.models.validation_condition import ValidationCondition
 
@@ -32,28 +33,52 @@ class ErrorsGenerator:
         results_elements = ErrorsGenerator.__get_elements_from_results(validation)
         error_message = f'If {conditions_conjunction.join(conditions_elements)}, ' \
                         f'then {results_conjunction.join(results_elements)}'
-        return Error(fieldName="", designPath=location, xpath="", errorMessage=error_message)
+        return Error(
+            fieldName="",
+            designPath=location,
+            xpath="",
+            errorMessage=error_message,
+            errorType=ErrorType.COND_IF_THEN
+        )
 
     @staticmethod
     def _generate_if_one_then_all_error(validation: ValidationCondition, location: str) -> Error:
         conjunction = f" {validation.rules[0].conjunction} "
         elements = ErrorsGenerator.__get_elements_from_rules(validation)
         error_message = f'If {conjunction.join(elements)} is present, then all are required'
-        return Error(fieldName="", designPath=location, xpath="", errorMessage=error_message)
+        return Error(
+            fieldName="",
+            designPath=location,
+            xpath="",
+            errorMessage=error_message,
+            errorType=ErrorType.COND_IF_ONE_THEN_ALL
+        )
 
     @staticmethod
     def _generate_at_least_one_of_error(validation: ValidationCondition, location: str) -> Error:
         conjunction = f" {validation.rules[0].conjunction} "
         elements = ErrorsGenerator.__get_elements_from_rules(validation)
         error_message = f'At least one of {conjunction.join(elements)} is required'
-        return Error(fieldName="", designPath=location, xpath="", errorMessage=error_message)
+        return Error(
+            fieldName="",
+            designPath=location,
+            xpath="",
+            errorMessage=error_message,
+            errorType=ErrorType.COND_AT_LEAST_ONE_OF
+        )
 
     @staticmethod
     def _generate_only_one_of_error(validation: ValidationCondition, location: str) -> Error:
         conjunction = f" {validation.rules[0].conjunction} "
         elements = ErrorsGenerator.__get_elements_from_rules(validation)
         error_message = f'Only one of {conjunction.join(elements)} can be present'
-        return Error(fieldName="", designPath=location, xpath="", errorMessage=error_message)
+        return Error(
+            fieldName="",
+            designPath=location,
+            xpath="",
+            errorMessage=error_message,
+            errorType=ErrorType.COND_ONLY_ONE_OF
+        )
 
     @staticmethod
     def __get_elements_from_rules(validation: ValidationCondition) -> list:

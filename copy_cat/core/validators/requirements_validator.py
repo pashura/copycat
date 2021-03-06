@@ -1,12 +1,13 @@
 import collections
 
+from copy_cat.core.validators.abstract_validator import AbstractValidator
+from copy_cat.core.validators.validation_conditions import (UnsupportedValidationConditionTypeError,
+                                                            validation_condition_factory)
+from copy_cat.enums.error_type import ErrorType
 from copy_cat.models.error import Error
 from copy_cat.models.test_data import DataObject
 from copy_cat.models.validation_condition import ValidationCondition
 from copy_cat.utils import get_reps_and_location, get_test_data_object
-from copy_cat.core.validators.abstract_validator import AbstractValidator
-from copy_cat.core.validators.validation_conditions import (UnsupportedValidationConditionTypeError,
-                                                            validation_condition_factory)
 
 
 class RequirementsValidator(AbstractValidator):
@@ -33,17 +34,23 @@ class RequirementsValidator(AbstractValidator):
         for c_type, conditions in self._get_grouped_validation_conditions(design_object.get('validation', [])).items():
             try:
                 validator = validation_condition_factory(c_type)
-                validator.validate(conditions, test_data, design_object['location'])
+                if design_object.get('location'):
+                    validator.validate(conditions, test_data, design_object['location'])
             except UnsupportedValidationConditionTypeError:
                 print(f'Conditions {c_type} skipped')
 
     def _validate_record_requirements(self, design_object: dict, test_data: list[DataObject]):
         if design_object.get('children') and not get_test_data_object(test_data, design_object.get('location')):
             error_message = f"Missing mandatory {design_object['name']} record"
-            self.errors_container.append(Error(fieldName="",
-                                               designPath=design_object['location'],
-                                               xpath="",
-                                               errorMessage=error_message))
+            self.errors_container.append(
+                Error(
+                    fieldName="",
+                    designPath=design_object['location'],
+                    xpath="",
+                    errorMessage=error_message,
+                    errorType=ErrorType.GROUP_REQUIREMENTS
+                )
+            )
             design_object['skipChildren'] = True
 
     def _validate_requirements(self, design_object: dict, test_data: list[DataObject]):
@@ -52,10 +59,15 @@ class RequirementsValidator(AbstractValidator):
         elif not design_object.get('children') and not get_test_data_object(test_data, design_object.get('location')):
             # TODO: Fix error message to be similar to web xd
             error_message = f"Missing mandatory {design_object['name']} in {design_object['parent']['name']} record"
-            self.errors_container.append(Error(fieldName="",
-                                               designPath=design_object['location'],
-                                               xpath="",
-                                               errorMessage=error_message))
+            self.errors_container.append(
+                Error(
+                    fieldName="",
+                    designPath=design_object['location'],
+                    xpath="",
+                    errorMessage=error_message,
+                    errorType=ErrorType.FIELD_LENGTH
+                )
+            )
 
     @staticmethod
     def _get_grouped_validation_conditions(validation_conditions: list) -> dict:

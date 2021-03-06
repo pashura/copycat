@@ -1,10 +1,10 @@
 import json
 
 from copy_cat.core.transformer.transformer import Transformer
+from copy_cat.core.validators.validator import Validator
 from copy_cat.models.test_data import DataObject
 from copy_cat.parsers.json_parser import JSONParser
 from copy_cat.parsers.xml_parser import XMLParser
-from copy_cat.core.validators.validator import Validator
 
 
 class CopyCat:
@@ -35,7 +35,10 @@ class CopyCat:
 
     def _add_locations(self, schema_object):
         for child in schema_object['children']:
-            child['location'] = f'{schema_object.get("location", schema_object["name"])}/{child["name"]}'
+            if child.get('name'):
+                child['location'] = f'{schema_object.get("location", schema_object["name"])}/{child["name"]}'
+            else:
+                child['location'] = f'{schema_object.get("location", schema_object["name"])}'
             self._add_locations(child)
 
     def _clean_up_invisible_nodes(self, schema_object):
@@ -48,4 +51,3 @@ class CopyCat:
         schema_object["visible"] = False
         for child in schema_object.get("children", []):
             self.__clean_up_node_with_its_children(child)
-
