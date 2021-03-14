@@ -1,8 +1,8 @@
 import requests
 import urllib3
 
-from copy_cat.exceptions import NotFoundError, ServiceError
-from copy_cat.services.ssm_service import SSMSecrets
+from copy_cat.common.exceptions import NotFoundError, ServiceError
+from copy_cat.services.ssm_service import SSMService
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -22,7 +22,8 @@ class TDService:
     @property
     def __token(self):
         if self.__Token is None:
-            self.__Token = SSMSecrets(self.environment).get_key("identity.token")
+            ssm = SSMService()
+            self.__Token = ssm.get_secret(f'/tpd/jenkins/xtencil-to-design/{self.environment}/identity.token')
         return self.__Token
 
     def get_blank_design(self, file_type: str, version: str, file_name: str) -> dict:

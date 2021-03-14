@@ -16,3 +16,7 @@ class BadRequestError(ServiceError):
 
 class DesignReaderException(ServiceError):
     """Exception raised when we have troubles inside DesignReader"""
+
+
+class UnknownSSMServiceError(ServiceError):
+    """Exception raised when we have troubles inside SSM Service"""

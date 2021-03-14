@@ -3,7 +3,7 @@ from copy_cat.parsers.design_parser import DesignParser
 
 class Transformer:
     def __init__(self):
-        pass
+        self.result = "BEER"
 
     def transform(self, design, reversed_design, test_data):
         design_parser = DesignParser()

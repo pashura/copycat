@@ -1,5 +1,6 @@
 from unittest.mock import patch
 
+from copy_cat.enums.error_type import ErrorType
 from copy_cat.models.error import Error
 from copy_cat.models.validation_condition import ValidationCondition
 from copy_cat.core.validators.validation_conditions import IfThenValidator
@@ -24,7 +25,13 @@ class TestIfThenValidator:
         expected = len(self.validator.errors_container.errors()) + 1
         mock_validations = [self.validation_condition_or, self.validation_condition_and]
         mock__conditions_satisfied.side_effect = [True, False, False, True]
-        mock_generate.return_value = Error(fieldName="", designPath=self.location, xpath="", errorMessage='1')
+        mock_generate.return_value = Error(
+            fieldName="",
+            designPath=self.location,
+            xpath="",
+            errorMessage='1',
+            errorType=ErrorType.COND_IF_THEN
+        )
         self.validator.validate(mock_validations, self.test_data, self.location)
         assert expected == len(self.validator.errors_container.errors())
 

@@ -1,22 +1,22 @@
+from functools import lru_cache
+
 import boto3
 
+from copy_cat.common.exceptions import UnknownSSMServiceError
 
-class SSMSecrets:
-    def __init__(self, env, region='us-east-1'):
-        self.parameters = {}
+
+class SSMService:
+    def __init__(self, env='test', region='us-east-1'):
         self.env = env
         self.region = region
 
-    def _get_by_path(self):
-        ssm = boto3.client("ssm", region_name=self.region)
-        parameters = []
-        path = "{}/{}/".format("/tpd/jenkins/xtencil-to-design", self.env)
-        args = dict(Path=path, WithDecryption=True, Recursive=True)
-        res = ssm.get_parameters_by_path(**args)
-        parameters.extend(res['Parameters'])
-        self.parameters = {item['Name'].replace(path, ''): item['Value'] for item in parameters}
-
-    def get_key(self, key):
-        if not self.parameters:
-            self._get_by_path()
-        return self.parameters.get(key)
+    @lru_cache(maxsize=128)
+    def get_secret(self, path):
+        client = boto3.client('ssm', region_name=self.region)
+        response = client.get_parameter(
+            Name=path,
+            WithDecryption=True
+        )
+        if 'Parameter' in response and 'Value' in response['Parameter']:
+            return response['Parameter']['Value']
+        raise UnknownSSMServiceError()

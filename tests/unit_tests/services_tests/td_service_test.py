@@ -4,8 +4,8 @@ import pytest
 import requests
 import requests_mock
 
-from copy_cat.exceptions import NotFoundError, ServiceError
-from copy_cat.services.ssm_service import SSMSecrets
+from copy_cat.common.exceptions import NotFoundError, ServiceError
+from copy_cat.services.ssm_service import SSMService
 from copy_cat.services.td_service import TDService
 
 TD = TDService('test')
@@ -27,9 +27,9 @@ def test_get_blank_design_success():
     with requests_mock.mock() as mock_:
         mock_.get(f'{GET_BLANK_DESIGN_URL}/{FILE_TYPE}/{VERSION}/{FILE_NAME}.json', json={'design': 'design'},
                   status_code=200)
-        with patch.object(SSMSecrets, 'get_key', new=new_get_key):
-            obj = SSMSecrets('env')
-            obj.get_key('identity.token')
+        with patch.object(SSMService, 'get_secret', new=new_get_key):
+            obj = SSMService('env')
+            obj.get_secret('identity.token')
             content = TD.get_blank_design(FILE_TYPE, VERSION, FILE_NAME)
             assert content == {'design': 'design'}
 
@@ -53,9 +53,9 @@ def test_get_blank_design_no_auth():
 def test_search_design_success():
     with requests_mock.mock() as mock_:
         mock_.get('{0}/{1}.json'.format(SEARCH_DESIGN_URL, FILE_NAME), json={}, status_code=200)
-        with patch.object(SSMSecrets, 'get_key', new=new_get_key):
-            obj = SSMSecrets('env')
-            obj.get_key('identity.token')
+        with patch.object(SSMService, 'get_secret', new=new_get_key):
+            obj = SSMService('env')
+            obj.get_secret('identity.token')
             rsp = TD.search_design(FILE_NAME)
             assert rsp == {}
 
@@ -77,9 +77,9 @@ def test_search_design_service_error():
 def test_get_design_success():
     with requests_mock.mock() as mock_:
         mock_.get(f'{GET_DESIGN_URL}/{ORGANIZATION_ID}/Designs/{DESIGN_NAME}.json', json={}, status_code=200)
-        with patch.object(SSMSecrets, 'get_key', new=new_get_key):
-            obj = SSMSecrets('env')
-            obj.get_key('identity.token')
+        with patch.object(SSMService, 'get_secret', new=new_get_key):
+            obj = SSMService('env')
+            obj.get_secret('identity.token')
             rsp = TD.get_design(ORGANIZATION_ID, DESIGN_NAME)
             assert rsp == {}
 
@@ -102,9 +102,9 @@ def test_get_design_service_error():
 def test_get_reversed_design_success():
     with requests_mock.mock() as mock_:
         mock_.get(f'{GET_DESIGN_URL}/{ORGANIZATION_ID}/Designs/{DESIGN_NAME}.json/reversed', json={}, status_code=200)
-        with patch.object(SSMSecrets, 'get_key', new=new_get_key):
-            obj = SSMSecrets('env')
-            obj.get_key('identity.token')
+        with patch.object(SSMService, 'get_secret', new=new_get_key):
+            obj = SSMService('env')
+            obj.get_secret('identity.token')
             rsp = TD.get_reversed_design(ORGANIZATION_ID, DESIGN_NAME)
             assert rsp == {}
 

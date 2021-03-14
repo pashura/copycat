@@ -1,6 +1,6 @@
 import re
 
-from copy_cat.constants import XPATH_GROUPS_REGEX, XPATH_REP_REGEX
+from copy_cat.common.constants import XPATH_GROUPS_REGEX, XPATH_REP_REGEX
 
 
 def traverse_path_in_schema_object(schema_object: dict, path_to_traverse: str) -> dict:
