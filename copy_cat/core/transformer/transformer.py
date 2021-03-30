@@ -6,23 +6,30 @@ from copy_cat.utils import get_reps_and_location, traverse_path_in_schema_object
 
 class Transformer:
     def __init__(self):
-        self.transformation_result = ['PhubALLAPPDEV']
-        self.result = """PhubALLAPPDEV
-D810
-"""
+        self.transformation_result = []
         self.temp_res = {}
         self.temp_res_list = []
         self.temp_res_nested = {}
 
         self.locations = []
-        self.doc_number = ''
 
     def transform(self, design, reversed_design, test_data):
-        self._add_doc_number(design)
         self._collect_locations(design)
+
+        self._add_header()
+        self._add_doc_number(design)
         self._process_test_data(test_data, reversed_design)
         self._sort_result()
         self._transform_to_feds()
+
+    def _add_header(self):
+        # Get hub id from Company Aggregator
+        hub_id = 'hub'
+        self.transformation_result.append(f'P{hub_id}ALLAPPDEV')
+
+    def _add_doc_number(self, design):
+        # TODO: Removed D - document
+        self.transformation_result.append(f"D{design.get('name').removeprefix('Transaction-')}")
 
     def _process_test_data(self, test_data, reversed_design):
         for test_data_obj in test_data:
@@ -44,21 +51,25 @@ D810
                     self.__collect_data(segment, element, full_obj)
                     self.__populate_dict(source_location.split('/'), self.temp_res_nested, full_obj, reps)
 
-    def _add_doc_number(self, design):
-        self.doc_number = f"D{design.get('name').removeprefix('Transaction-')}"
-        self.transformation_result.append(self.doc_number)
-
     @staticmethod
     def __generate_feds_segment(source_location):
         # TODO: Removed S - segment
-        return f"S{(source_location.split('/')[-2]).split('-')[-1]}"
+        record_index = -3 if 'Composite' in source_location.split('/')[-2] else -2
+        return f"S{source_location.split('/')[record_index].split('-')[-1]}"
 
     @staticmethod
     def __generate_feds_element(source_location, value):
         # TODO: Removed E - element
         # TODO: Process composites
         split_source = source_location.split('/')
-        return f"E0{(split_source[-1]).removeprefix((split_source[-2]).split('-')[-1])}000{value}"
+        composite_id = source_location.split('/')[-1].split('-')[-1]
+        is_comp = 'Composite' in split_source[-2]
+        record_index = -3 if is_comp else -2
+        prefix_to_remove = f"{split_source[-2][:-2]}" if is_comp else split_source[record_index].split('-')[-1]
+        zeros = f"0{composite_id}" if is_comp else "000"
+        if is_comp:
+            return f"E0{split_source[-2].removeprefix(prefix_to_remove)}{zeros}{value}"
+        return f"E0{split_source[-1].removeprefix(prefix_to_remove)}{zeros}{value}"
 
     def _collect_locations(self, schema_object):
         for child in schema_object['children']:
@@ -81,19 +92,14 @@ D810
         sorted_paths = self.sort_stuff(paths)
         self.temp_res_list.sort(key=lambda x: sorted_paths.index(x['updated_location']))
 
-    @staticmethod
-    def conditional_sort_2(ls, f):
-        y = iter(sorted([w for w in ls if f(w)], key=lambda x: x['updated_location'].split('[')))
-        return [w if not f(w) else next(y) for w in ls]
-
     def _transform_to_feds(self):
         for i in self.temp_res_list:
             for key, value in i.items():
                 if key == ObjectType.SEGMENT.value:
-                    self.result += f"{value.split('_')[0]}\n"
+                    self.transformation_result.append(f"{value.split('_')[0]}")
                 elif key == ObjectType.ELEMENTS.value:
                     for el in value:
-                        self.result += f"{el}\n"
+                        self.transformation_result.append(el)
 
     @staticmethod
     def __get_source_location(design_object):
@@ -121,7 +127,6 @@ D810
 
     @staticmethod
     def __create_full_obj(parents, segment, element, source_location, reps):
-        parent = '/'.join(source_location.split('/')[:-2]) if len(reps) else ''
 
         def update_for_edi(rep):
             loops = parents[-1].split('/')[1:]
@@ -137,12 +142,6 @@ D810
             'segment': segment,
             'elements': sorted([element]),
             'location': '/'.join(source_location.split('/')[:-1]),
-            'parent': parent,
-            'first_element': source_location,
-            'parents': parents,
-            'level': len(parents),
-            'reps': reps,
-            'edi_reps': edi_reps,
             'updated_location': '/'.join(updated_location)
         }
 
@@ -162,7 +161,7 @@ D810
             head, tail = item[0], item[1:]
             original_head = head
 
-            if len(reps) and head != f'Transaction-{self.doc_number}':
+            if len(reps) and 'Transaction' not in head:
                 head += f"-{reps[-2] if len(reps) > 1 else reps[-1]['rep_number']}"
 
             existing_dict.setdefault(head, {})

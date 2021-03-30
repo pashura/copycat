@@ -3,7 +3,7 @@ import re
 from copy_cat.common.constants import XPATH_GROUPS_REGEX, XPATH_REP_REGEX
 
 
-def traverse_path_in_schema_object(schema_object: dict, path_to_traverse: str) -> dict:
+def traverse_path_in_schema_object(schema_object: dict, path_to_traverse: str) -> dict or None:
     current_object = schema_object
     if path_to_traverse:
         for n, element in enumerate(path_to_traverse.split("/")):

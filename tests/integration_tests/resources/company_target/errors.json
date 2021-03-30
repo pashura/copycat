@@ -50,13 +50,6 @@
   },
   {
     "fieldName": "",
-    "designPath": "Invoice/Header/InvoiceHeader",
-    "xpath": "",
-    "errorMessage": "If PurchaseOrderNumber is present or PrimaryPOTypeCode is equal to DS, then TsetPurposeCode is required and ActionCode must be equal to 1 and JobNumber minimum length is 6 and JobNumber maximum length is 8",
-    "errorType": "conditionIfThen"
-  },
-  {
-    "fieldName": "",
     "designPath": "Invoice/Header/InvoiceHeader/InvoiceNumber",
     "xpath": "",
     "errorMessage": "Missing mandatory InvoiceNumber in InvoiceHeader record",

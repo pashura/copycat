@@ -35,8 +35,10 @@ class IntegrationTestRun(unittest.TestCase):
 
         cc = CopyCat()
         cc.run(data[0], data[1], data[3])
-        assert [] == cc.validator.errors_container.errors()
-        assert data[5] == cc.transformer.result
+        # assert [] == cc.validator.errors_container.errors()
+        self.assertEqual([], cc.validator.errors_container.errors())
+        assert data[5] == '\n'.join(cc.transformer.transformation_result)
+        # assert data[5] == cc.transformer.result
 
 
 class IntegrationTestRunTargetInvoice(IntegrationTestRun):

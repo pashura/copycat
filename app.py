@@ -36,7 +36,7 @@ def run(org_id, design_name):
     cc.run(design, reversed_design, request.data)
     if len(cc.validator.errors_container.errors()):
         return jsonify(cc.validator.errors_container.errors())
-    return cc.transformer.result
+    return '\n'.join(cc.transformer.transformation_result)
 
 
 @app.route('/parcel_uid/<parcel_uid>', methods=['GET'])

@@ -1349,76 +1349,6 @@
               ]
             },
             {
-              "type": "onlyOneOf",
-              "conditions": [],
-              "results": [],
-              "rules": [
-                {
-                  "conjunction": "or",
-                  "conditions": [
-                    {
-                      "condition": "present",
-                      "element": "PurchaseOrderNumber",
-                      "value": ""
-                    },
-                    {
-                      "condition": "equals",
-                      "element": "PrimaryPOTypeCode",
-                      "value": "DS"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "ifThen",
-              "conditions": [
-                {
-                  "conjunction": "or",
-                  "conditions": [
-                    {
-                      "condition": "present",
-                      "element": "PurchaseOrderNumber",
-                      "value": ""
-                    },
-                    {
-                      "condition": "equals",
-                      "element": "PrimaryPOTypeCode",
-                      "value": "DS"
-                    }
-                  ]
-                }
-              ],
-              "results": [
-                {
-                  "conjunction": "and",
-                  "conditions": [
-                    {
-                      "condition": "required",
-                      "element": "TsetPurposeCode",
-                      "value": ""
-                    },
-                    {
-                      "condition": "equals",
-                      "element": "ActionCode",
-                      "value": "1"
-                    },
-                    {
-                      "condition": "minLength",
-                      "element": "JobNumber",
-                      "value": "6"
-                    },
-                    {
-                      "condition": "maxLength",
-                      "element": "JobNumber",
-                      "value": "8"
-                    }
-                  ]
-                }
-              ],
-              "rules": []
-            },
-            {
               "rules": [],
               "conditions": [
                 {
@@ -10815,13 +10745,13 @@
                       "validation": [],
                       "displayName": "StringSet",
                       "minOccurs": "1",
-                      "minLength": "",
+                      "minLength": "2",
                       "children": [],
                       "visible": true,
                       "ediId": "355",
                       "EDIDataType": "ID",
                       "base": "EDI-Element-String-Type",
-                      "maxLength": "",
+                      "maxLength": "2",
                       "attributes": [],
                       "elementType": "restriction",
                       "id": 2617,
@@ -10836,7 +10766,14 @@
                     "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/Composite-SLN05/SLN05-01",
                     "name": "SLN05-01",
                     "elementType": "element"
-                  }
+                  },
+                  "qualifiers": "EA",
+                  "qualifierDescriptions": [
+                    {
+                      "qual": "EA",
+                      "description": "Each"
+                    }
+                  ]
                 },
                 {
                   "minOccurs": "0",
@@ -10902,13 +10839,13 @@
                       "validation": [],
                       "displayName": "StringSet",
                       "minOccurs": "1",
-                      "minLength": "",
+                      "minLength": "2",
                       "children": [],
                       "visible": true,
                       "ediId": "639",
                       "EDIDataType": "ID",
                       "base": "EDI-Element-String-Type",
-                      "maxLength": "",
+                      "maxLength": "2",
                       "attributes": [],
                       "elementType": "restriction",
                       "id": 2668,
@@ -10923,7 +10860,14 @@
                     "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/SLN07",
                     "name": "SLN07",
                     "elementType": "element"
-                  }
+                  },
+                  "qualifiers": "HF",
+                  "qualifierDescriptions": [
+                    {
+                      "qual": "HF",
+                      "description": "Price per 100 Feet"
+                    }
+                  ]
                 },
                 {
                   "minOccurs": "0",
@@ -11433,7 +11377,7 @@
               "minOccurs": "0",
               "elementType": "element",
               "hasEnum": false,
-              "visible": true,
+              "visible": false,
               "children": [
                 {
                   "minOccurs": "0",
@@ -11490,36 +11434,18 @@
                   "minOccurs": "0",
                   "elementType": "element",
                   "hasEnum": false,
-                  "visible": true,
+                  "visible": false,
                   "children": [],
                   "attributes": [
                     {
-                      "hasEnum": false,
-                      "validation": [],
-                      "displayName": "String",
-                      "minOccurs": "1",
-                      "minLength": "1",
-                      "children": [],
-                      "visible": true,
-                      "ediId": "352",
-                      "EDIDataType": "AN",
-                      "base": "EDI-Element-String-Type",
-                      "maxLength": "80",
-                      "attributes": [],
                       "elementType": "restriction",
-                      "id": 2829,
-                      "dropExtraRecords": false
+                      "base": "xs:string",
+                      "displayName": "String",
+                      "id": 1006
                     }
                   ],
                   "name": "ProductDescription",
-                  "id": 1005,
-                  "sourcing": {
-                    "documentation": "A free-form description to clarify the related data elements and their content",
-                    "hasEnum": false,
-                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-PID/PID05",
-                    "name": "PID05",
-                    "elementType": "element"
-                  }
+                  "id": 1005
                 },
                 {
                   "minOccurs": "0",
