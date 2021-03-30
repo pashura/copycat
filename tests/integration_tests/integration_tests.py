@@ -8,7 +8,8 @@ from tests.integration_tests import RESOURCES_DIR_TARGET_INVOICE
 
 def pre_load_data(resource_directory):
     data = tuple()
-    file_names = ('reversed_design.json', 'rsx_test_data_1.xml', 'rsx_test_data_2.xml', 'errors.json', )
+    file_names = ('design.json', 'reversed_design.json', 'rsx_test_data_failed.xml', 'rsx_test_data_passed.xml',
+                  'errors.json', 'transform_result.feds')
     for file_name in file_names:
         with open(os.path.join(resource_directory, file_name), 'rb' if file_name.endswith('.xml') else 'r') as f:
             data += (f.read(),)
@@ -28,13 +29,14 @@ class IntegrationTestRun(unittest.TestCase):
         data = pre_load_data(self.RESOURCES_DIR)
 
         cc = CopyCat()
-        cc.run(data[0], data[0], data[1])
-        assert cc.validator.errors_container.errors() == json.loads(data[3])
+        cc.run(data[0], data[1], data[2])
+        assert json.loads(data[4]) == cc.validator.errors_container.errors()
         cc.validator.errors_container.clean()
 
-        cc.run(data[0], data[0], data[2])
-        assert cc.validator.errors_container.errors() == []
-        cc.validator.errors_container.clean()
+        cc = CopyCat()
+        cc.run(data[0], data[1], data[3])
+        assert [] == cc.validator.errors_container.errors()
+        assert data[5] == cc.transformer.result
 
 
 class IntegrationTestRunTargetInvoice(IntegrationTestRun):
