@@ -7,13 +7,6 @@
     "errorType": "fieldLength"
   },
   {
-    "fieldName": "PrimaryPOTypeCode",
-    "designPath": "Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
-    "xpath": "/Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
-    "errorMessage": "Qualifier ZZ is not valid. Possible choices -> ['DS']",
-    "errorType": "choices"
-  },
-  {
     "fieldName": "ShipDate",
     "designPath": "Invoice/Header/InvoiceHeader/ShipDate",
     "xpath": "/Invoice/Header/InvoiceHeader/ShipDate",

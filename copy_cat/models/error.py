@@ -1,12 +1,16 @@
+from typing import Optional
+
+from pydantic import Field
+
 from copy_cat.enums.error_type import ErrorType
 from copy_cat.models.base import BaseError
 
 
 # TODO: snake case here + add alias
 class Error(BaseError):
-    fieldName: str
+    fieldName: Optional[str] = Field(default='')
     designPath: str
-    xpath: str
+    xpath: Optional[str] = Field(default='')
     errorMessage: str
 
     errorType: ErrorType

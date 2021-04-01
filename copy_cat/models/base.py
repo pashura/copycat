@@ -19,3 +19,9 @@ class BaseValidationCondition(BaseModel):
     class Config:
         use_enum_values = True
         orm_mode = True
+
+
+class BaseFeds(BaseModel):
+
+    class Config:
+        use_enum_values = True

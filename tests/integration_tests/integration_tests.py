@@ -29,16 +29,16 @@ class IntegrationTestRun(unittest.TestCase):
         data = pre_load_data(self.RESOURCES_DIR)
 
         cc = CopyCat()
-        cc.run(data[0], data[1], data[2])
+        cc.run(json.loads(data[0]), json.loads(data[1]), data[2])
         assert json.loads(data[4]) == cc.validator.errors_container.errors()
         cc.validator.errors_container.clean()
 
         cc = CopyCat()
-        cc.run(data[0], data[1], data[3])
-        # assert [] == cc.validator.errors_container.errors()
-        self.assertEqual([], cc.validator.errors_container.errors())
-        assert data[5] == '\n'.join(cc.transformer.transformation_result)
-        # assert data[5] == cc.transformer.result
+        result = cc.run(json.loads(data[0]), json.loads(data[1]), data[3])
+        assert [] == cc.validator.errors_container.errors()
+        assert data[5] == '\n'.join(result)
+
+        # *** this test currently runs in 1.988ms *** # -> PLEASE UPDATE THIS VALUE IF THE TEST CHANGED
 
 
 class IntegrationTestRunTargetInvoice(IntegrationTestRun):
