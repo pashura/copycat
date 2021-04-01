@@ -38,12 +38,8 @@ class Sourcing(BaseDesign):
         return 'Composite' in self.parent_name
 
     @property
-    def record_index(self) -> int:
-        return -3 if self.is_composite else -2
-
-    @property
     def record_name(self):
-        return self.location.split('/')[self.record_index]
+        return self.location.split('/')[-3 if self.is_composite else -2]
 
 
 class QualifierCondition(BaseDesign):

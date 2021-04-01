@@ -10,14 +10,16 @@ from copy_cat.utils import get_reps_and_location
 class Transformer:
     def __init__(self):
         self.document = None
+        self.locations = []
 
     def transform(self, design: DesignObject, reversed_design: DesignObject, test_data: List[DataObject]) -> List:
         self.document = FedsDocument(
-            partnership=f"D{design.name.removeprefix('Transaction-')}",
-            header=self._add_header()
+            document=f"D{design.name.removeprefix('Transaction-')}",
+            partnership=self._add_header()
         )
         self._process_test_data(test_data, reversed_design)
-        FedsSorter(design).sort(self.document)
+        self._collect_locations(design)
+        FedsSorter().sort(self.document, self.locations)
         return self.document.feds_representation
 
     @staticmethod
@@ -28,13 +30,13 @@ class Transformer:
 
     def _process_test_data(self, test_data: List[DataObject], reversed_design: DesignObject):
         for test_data_obj in test_data:
-            location, reps = get_reps_and_location(test_data_obj.no_root_location)
+            location, reps = get_reps_and_location(test_data_obj.location_without_root)
             if not (design_object := reversed_design.get_child_by_location(location)):
                 continue
             if (source := design_object.sourcing) and design_object.visible:
-                value = self.__update_value_for_date_and_time(design_object, test_data_obj.value)
                 segment = self.__segment(source, reps)
-                element = self.__composite(source, value) if source.is_composite else self.__element(source, value)
+                element = self.__composite(source, test_data_obj.value, design_object.restriction) \
+                    if source.is_composite else self.__element(source, test_data_obj.value, design_object.restriction)
 
                 self.__combine_data(segment, element)
 
@@ -50,18 +52,20 @@ class Transformer:
         return segment
 
     @staticmethod
-    def __element(source_location, value):
+    def __element(source_location, value, restriction):
         return FedsElement(
             value=value,
-            element_id=f"0{source_location.location[-2:]}"
+            element_id=f"0{source_location.location[-2:]}",
+            dataType=restriction.display_name
         )
 
     @staticmethod
-    def __composite(source_location, value):
+    def __composite(source_location, value, restriction):
         return FedsElement(
             value=value,
             element_id=f"0{source_location.parent_name[-2:]}",
-            composite_id=f"0{source_location.location.split('-')[-1]}"
+            composite_id=f"0{source_location.location.split('-')[-1]}",
+            dataType=restriction.display_name
         )
 
     def __combine_data(self, segment, element):
@@ -71,8 +75,7 @@ class Transformer:
             segment.elements.append(element)
             self.document.segments.append(segment)
 
-    @staticmethod
-    def __update_value_for_date_and_time(design_object, value):
-        if design_object.restriction.display_name in ['Date', 'Time']:
-            return value.replace("-", "").replace(":", "")
-        return value
+    def _collect_locations(self, schema_object):
+        for child in schema_object.children:
+            self.locations.append(child.location)
+            self._collect_locations(child)

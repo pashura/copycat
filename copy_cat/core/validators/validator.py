@@ -21,7 +21,7 @@ class Validator(AbstractValidator):
 
     def validate(self, design: DesignObject, test_data: List[DataObject]):
         for test_data_obj in test_data:
-            location, reps = get_reps_and_location(test_data_obj.no_root_location)
+            location, reps = get_reps_and_location(test_data_obj.location_without_root)
             if not (design_object := design.get_child_by_location(location)):
                 continue
             if design_object.visible:

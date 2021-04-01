@@ -10,6 +10,12 @@ class FedsElement(BaseFeds):
     element_id: str
     composite_id: str = Field(default='000')
     identifier: str = Field(default='E')
+    data_type: str = Field(alias='dataType')
+
+    def get_value(self):
+        if self.data_type in ['Date', 'Time']:
+            return self.value.replace("-", "").replace(":", "")
+        return self.value
 
 
 class FedsSegment(BaseFeds):
@@ -43,18 +49,16 @@ class FedsSegment(BaseFeds):
 
 
 class FedsDocument(BaseFeds):
-    header: str
+    document: str
     partnership: str
     identifier: str = Field(default='D')
     segments: List[FedsSegment] = []
 
     @property
     def feds_representation(self):
-        feds = [self.header, self.partnership]
+        feds = [self.partnership, self.document]
         for segment in self.segments:
             feds.append(f'{segment.identifier}{segment.name}')
             for element in segment.elements:
-                feds.append(f'{element.identifier}{element.element_id}{element.composite_id}{element.value}')
+                feds.append(f'{element.identifier}{element.element_id}{element.composite_id}{element.get_value()}')
         return feds
-
-# FedsDocument.update_forward_refs()

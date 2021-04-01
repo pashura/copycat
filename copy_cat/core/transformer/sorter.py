@@ -2,15 +2,12 @@ from operator import itemgetter
 
 
 class FedsSorter:
-    def __init__(self, schema_object):
-        self.locations = []
-        self._collect_locations(schema_object)
 
-    def sort(self, document):
+    def sort(self, document, locations):
         for segment in document.segments:
             segment.elements.sort(key=lambda x: (x.element_id, x.composite_id))
 
-        document.segments.sort(key=lambda x: self.locations.index(x.location))
+        document.segments.sort(key=lambda x: locations.index(x.location))
         sorted_paths = self._sort_stuff([segment.xpath for segment in document.segments])
         document.segments.sort(key=lambda x: sorted_paths.index(x.xpath))
 
@@ -44,8 +41,3 @@ class FedsSorter:
                     else:
                         paths_with_reps[key] = {'start_position': path_index, 'end_position': path_index}
         return paths_with_reps
-
-    def _collect_locations(self, schema_object):
-        for child in schema_object.children:
-            self.locations.append(child.location)
-            self._collect_locations(child)
