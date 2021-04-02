@@ -25,7 +25,9 @@ class CopyCat:
 
         test_data = XMLParser().parse(body)
 
-        flatten_result = [DataObject(**result) for result in JSONParser().parse(test_data)]
+        flatten_result = [
+            DataObject(**result) for result in JSONParser().parse(test_data)
+        ]
 
         self.validator.validate(reversed_design, flatten_result)
 
@@ -40,7 +42,7 @@ class CopyCat:
     def _add_locations(self, schema_object: DesignObject) -> None:
         for child in schema_object.children:
             prefix = schema_object.location or schema_object.name
-            child.location = f'{prefix}/{child.name}' if child.name else prefix
+            child.location = f"{prefix}/{child.name}" if child.name else prefix
             self._add_locations(child)
 
     def _clean_up_invisible_nodes(self, schema_object: DesignObject) -> None:

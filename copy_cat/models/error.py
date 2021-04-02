@@ -8,9 +8,9 @@ from copy_cat.models.base import BaseError
 
 # TODO: snake case here + add alias
 class Error(BaseError):
-    fieldName: Optional[str] = Field(default='')
+    fieldName: Optional[str] = Field(default="")
     designPath: str
-    xpath: Optional[str] = Field(default='')
+    xpath: Optional[str] = Field(default="")
     errorMessage: str
 
     errorType: ErrorType

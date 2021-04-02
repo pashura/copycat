@@ -1,6 +1,4 @@
-
 class JSONParser:
-
     def parse(self, json_obj):
         return self._flatten(json_obj)
 

@@ -34,22 +34,22 @@ def test_parse_returns_json_object():
                                 "location": "/Invoice/Header/InvoiceHeader/TradingPartnerId",
                                 "name": "TradingPartnerId",
                                 "text": "009ACH1G1A1G1",
-                                "type": "str"
+                                "type": "str",
                             },
                             {
                                 "length": 10,
                                 "location": "/Invoice/Header/InvoiceHeader/InvoiceNumber",
                                 "name": "InvoiceNumber",
                                 "text": "4714370244",
-                                "type": "int"
-                            }
+                                "type": "int",
+                            },
                         ],
                         "location": "/Invoice/Header/InvoiceHeader",
-                        "name": "InvoiceHeader"
+                        "name": "InvoiceHeader",
                     }
                 ],
                 "location": "/Invoice/Header",
-                "name": "Header"
+                "name": "Header",
             },
             {
                 "children": [
@@ -60,22 +60,22 @@ def test_parse_returns_json_object():
                                 "location": "/Invoice/LineItem/InvoiceLine/BuyerPartNumber",
                                 "name": "BuyerPartNumber",
                                 "text": "081070041",
-                                "type": "int"
+                                "type": "int",
                             },
                             {
                                 "length": 8,
                                 "location": "/Invoice/LineItem/InvoiceLine/VendorPartNumber",
                                 "name": "VendorPartNumber",
                                 "text": "85401-SL",
-                                "type": "str"
-                            }
+                                "type": "str",
+                            },
                         ],
                         "location": "/Invoice/LineItem/InvoiceLine",
-                        "name": "InvoiceLine"
+                        "name": "InvoiceLine",
                     }
                 ],
                 "location": "/Invoice/LineItem",
-                "name": "LineItem"
+                "name": "LineItem",
             },
             {
                 "children": [
@@ -84,15 +84,15 @@ def test_parse_returns_json_object():
                         "location": "/Invoice/Summary/TotalAmount",
                         "name": "TotalAmount",
                         "text": "31.28",
-                        "type": "float"
+                        "type": "float",
                     }
                 ],
                 "location": "/Invoice/Summary",
-                "name": "Summary"
-            }
+                "name": "Summary",
+            },
         ],
         "location": "/Invoice",
-        "name": "Invoice"
+        "name": "Invoice",
     }
     result = XMLParser().parse(xml_data)
     assert result == expected_result

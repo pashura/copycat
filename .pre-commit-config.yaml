@@ -1,0 +1,14 @@
+default_language_version:
+  python: python3.9
+default_stages: [commit]
+repos:
+  - repo: https://github.com/ambv/black
+    rev: 20.8b1
+    hooks:
+      - id: black
+        language_version: python3.9
+  - repo: https://github.com/timothycrosley/isort
+    rev: 5.8.0
+    hooks:
+    - id: isort
+      args: ["--profile", "black", "--filter-files"]
