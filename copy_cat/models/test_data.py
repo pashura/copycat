@@ -16,5 +16,9 @@ class DataObject(BaseDesign):
     used: Optional[bool]
     index: Optional[int]
 
+    @property
+    def location_without_root(self):
+        return '/'.join(self.location.split('/')[2:])
+
 
 DataObject.update_forward_refs()

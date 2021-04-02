@@ -33,10 +33,10 @@ def run(org_id, design_name):
     td_service = TDService()
     design = td_service.get_design(org_id, design_name)
     reversed_design = td_service.get_reversed_design(org_id, design_name)
-    cc.run(design, reversed_design, request.data)
+    result = cc.run(json.loads(design), json.loads(reversed_design), request.data)
     if len(cc.validator.errors_container.errors()):
         return jsonify(cc.validator.errors_container.errors())
-    return cc.transformer.result
+    return jsonify(result)
 
 
 @app.route('/parcel_uid/<parcel_uid>', methods=['GET'])

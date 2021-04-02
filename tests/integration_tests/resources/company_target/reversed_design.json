@@ -89,7 +89,8 @@
               "elementType": "restriction",
               "base": "xs:boolean",
               "displayName": "Boolean",
-              "id": 11
+              "id": 11,
+              "dropExtraRecords": false
             }
           ],
           "name": "IsDropShip",
@@ -461,7 +462,8 @@
                   "maxLength": "22",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 8
+                  "id": 8,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "InvoiceNumber",
@@ -496,7 +498,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 5
+                  "id": 5,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "InvoiceDate",
@@ -565,7 +568,8 @@
                   "maxLength": "22",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 14
+                  "id": 14,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "PurchaseOrderNumber",
@@ -625,7 +629,7 @@
               "qualifierDescriptions": [
                 {
                   "qual": "DS",
-                  "description": "Disposition"
+                  "description": "Drop Ship"
                 }
               ]
             },
@@ -688,8 +692,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "AdditionalPOTypeCodes",
+              "maxOccurs": "unbounded",
               "id": 62
             },
             {
@@ -730,35 +734,109 @@
               "minOccurs": "0",
               "elementType": "element",
               "hasEnum": true,
-              "visible": false,
+              "visible": true,
               "children": [],
               "attributes": [
                 {
-                  "elementType": "restriction",
+                  "hasEnum": true,
+                  "validation": [],
                   "displayName": "StringSet",
-                  "base": "xs:string",
-                  "id": 72
+                  "minOccurs": "1",
+                  "minLength": "2",
+                  "children": [],
+                  "visible": true,
+                  "ediId": "353",
+                  "EDIDataType": "ID",
+                  "base": "EDI-Element-String-Type",
+                  "maxLength": "2",
+                  "attributes": [],
+                  "elementType": "restriction",
+                  "id": 26,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TsetPurposeCode",
-              "id": 71
+              "id": 71,
+              "sourcing": {
+                "documentation": "Code identifying purpose of transaction set",
+                "hasEnum": true,
+                "location": "Transaction-810/Segment-BIG/BIG08",
+                "name": "BIG08",
+                "elementType": "element"
+              },
+              "qualifiers": "00,01,05,06,07",
+              "qualifierDescriptions": [
+                {
+                  "qual": "00",
+                  "description": "Original"
+                },
+                {
+                  "qual": "01",
+                  "description": "Cancellation"
+                },
+                {
+                  "qual": "05",
+                  "description": "Replace"
+                },
+                {
+                  "qual": "06",
+                  "description": "Confirmation"
+                },
+                {
+                  "qual": "07",
+                  "description": "Duplicate"
+                }
+              ]
             },
             {
               "minOccurs": "0",
               "elementType": "element",
               "hasEnum": true,
-              "visible": false,
+              "visible": true,
               "children": [],
               "attributes": [
                 {
-                  "elementType": "restriction",
+                  "hasEnum": true,
+                  "validation": [],
                   "displayName": "StringSet",
-                  "base": "xs:string",
-                  "id": 74
+                  "minOccurs": "1",
+                  "minLength": "1",
+                  "children": [],
+                  "visible": true,
+                  "ediId": "306",
+                  "EDIDataType": "ID",
+                  "base": "EDI-Element-String-Type",
+                  "maxLength": "1",
+                  "attributes": [],
+                  "elementType": "restriction",
+                  "id": 29,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "ActionCode",
-              "id": 73
+              "id": 73,
+              "sourcing": {
+                "documentation": "Code indicating type of action",
+                "hasEnum": true,
+                "location": "Transaction-810/Segment-BIG/BIG09",
+                "name": "BIG09",
+                "elementType": "element"
+              },
+              "qualifiers": "1,2,3",
+              "qualifierDescriptions": [
+                {
+                  "qual": "1",
+                  "description": "Add"
+                },
+                {
+                  "qual": "2",
+                  "description": "Change/Update"
+                },
+                {
+                  "qual": "3",
+                  "description": "Delete"
+                }
+              ]
             },
             {
               "minOccurs": "0",
@@ -866,7 +944,8 @@
                   "maxLength": "30",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 136
+                  "id": 136,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Department",
@@ -911,7 +990,8 @@
                   "maxLength": "30",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 136
+                  "id": 136,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Vendor",
@@ -922,18 +1002,36 @@
               "minOccurs": "0",
               "elementType": "element",
               "hasEnum": false,
-              "visible": false,
+              "visible": true,
               "children": [],
               "attributes": [
                 {
-                  "elementType": "restriction",
-                  "base": "xs:string",
+                  "hasEnum": false,
+                  "validation": [],
                   "displayName": "String",
-                  "id": 92
+                  "minOccurs": "1",
+                  "minLength": "1",
+                  "children": [],
+                  "visible": true,
+                  "ediId": "76",
+                  "EDIDataType": "AN",
+                  "base": "EDI-Element-String-Type",
+                  "maxLength": "22",
+                  "attributes": [],
+                  "elementType": "restriction",
+                  "id": 32,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "JobNumber",
-              "id": 91
+              "id": 91,
+              "sourcing": {
+                "documentation": "Identifying number assigned by issuer",
+                "hasEnum": false,
+                "location": "Transaction-810/Segment-BIG/BIG10",
+                "name": "BIG10",
+                "elementType": "element"
+              }
             },
             {
               "minOccurs": "0",
@@ -998,6 +1096,7 @@
                   "base": "xs:string",
                   "displayName": "String",
                   "id": 100,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "30"
                 }
@@ -1017,6 +1116,7 @@
                   "base": "xs:string",
                   "displayName": "String",
                   "id": 102,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "30"
                 }
@@ -1046,7 +1146,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 485
+                  "id": 485,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "ShipDate",
@@ -1056,7 +1157,7 @@
               "minOccurs": "0",
               "elementType": "element",
               "hasEnum": false,
-              "visible": true,
+              "visible": false,
               "children": [],
               "attributes": [
                 {
@@ -1158,6 +1259,162 @@
           "attributes": [],
           "name": "InvoiceHeader",
           "id": 45,
+          "validation": [
+            {
+              "type": "atLeastOneOf",
+              "conditions": [],
+              "results": [],
+              "rules": [
+                {
+                  "conjunction": "or",
+                  "conditions": [
+                    {
+                      "condition": "required",
+                      "element": "TsetPurposeCode",
+                      "value": ""
+                    },
+                    {
+                      "condition": "required",
+                      "element": "ActionCode",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "atLeastOneOf",
+              "conditions": [],
+              "results": [],
+              "rules": [
+                {
+                  "conjunction": "or",
+                  "conditions": [
+                    {
+                      "condition": "equals",
+                      "element": "PrimaryPOTypeCode",
+                      "value": "DS"
+                    },
+                    {
+                      "condition": "equals",
+                      "element": "TsetPurposeCode",
+                      "value": "07"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "atLeastOneOf",
+              "conditions": [],
+              "results": [],
+              "rules": [
+                {
+                  "conjunction": "or",
+                  "conditions": [
+                    {
+                      "condition": "equals",
+                      "element": "ActionCode",
+                      "value": "1"
+                    },
+                    {
+                      "condition": "required",
+                      "element": "JobNumber",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ifOneThenAll",
+              "conditions": [],
+              "results": [],
+              "rules": [
+                {
+                  "conjunction": "or",
+                  "conditions": [
+                    {
+                      "condition": "present",
+                      "element": "PrimaryPOTypeCode",
+                      "value": ""
+                    },
+                    {
+                      "condition": "equals",
+                      "element": "ActionCode",
+                      "value": "2"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rules": [],
+              "conditions": [
+                {
+                  "conjunction": "",
+                  "conditions": [
+                    {
+                      "element": "Vendor",
+                      "condition": "required",
+                      "value": ""
+                    }
+                  ]
+                }
+              ],
+              "type": "ifThen",
+              "results": [
+                {
+                  "conjunction": "and",
+                  "conditions": [
+                    {
+                      "element": "Vendor",
+                      "condition": "required",
+                      "value": ""
+                    },
+                    {
+                      "element": "Vendor",
+                      "condition": "required",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "rules": [],
+              "conditions": [
+                {
+                  "conjunction": "",
+                  "conditions": [
+                    {
+                      "element": "Department",
+                      "condition": "required",
+                      "value": ""
+                    }
+                  ]
+                }
+              ],
+              "type": "ifThen",
+              "results": [
+                {
+                  "conjunction": "and",
+                  "conditions": [
+                    {
+                      "element": "Vendor",
+                      "condition": "required",
+                      "value": ""
+                    },
+                    {
+                      "element": "Vendor",
+                      "condition": "required",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "conditionalSourcing": [
             {
               "conditions": [
@@ -1356,74 +1613,6 @@
                 }
               ]
             }
-          ],
-          "validation": [
-            {
-              "rules": [],
-              "conditions": [
-                {
-                  "conjunction": "",
-                  "conditions": [
-                    {
-                      "element": "Vendor",
-                      "condition": "required",
-                      "value": ""
-                    }
-                  ]
-                }
-              ],
-              "type": "ifThen",
-              "results": [
-                {
-                  "conjunction": "and",
-                  "conditions": [
-                    {
-                      "element": "Vendor",
-                      "condition": "required",
-                      "value": ""
-                    },
-                    {
-                      "element": "Vendor",
-                      "condition": "required",
-                      "value": ""
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "rules": [],
-              "conditions": [
-                {
-                  "conjunction": "",
-                  "conditions": [
-                    {
-                      "element": "Department",
-                      "condition": "required",
-                      "value": ""
-                    }
-                  ]
-                }
-              ],
-              "type": "ifThen",
-              "results": [
-                {
-                  "conjunction": "and",
-                  "conditions": [
-                    {
-                      "element": "Vendor",
-                      "condition": "required",
-                      "value": ""
-                    },
-                    {
-                      "element": "Vendor",
-                      "condition": "required",
-                      "value": ""
-                    }
-                  ]
-                }
-              ]
-            }
           ]
         },
         {
@@ -1474,7 +1663,7 @@
                 },
                 {
                   "qual": "02",
-                  "description": "End of Month (EOM)"
+                  "description": "End of Month[EOM]"
                 },
                 {
                   "qual": "14",
@@ -1566,7 +1755,8 @@
                   "maxLength": "6",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 436
+                  "id": 436,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TermsDiscountPercentage",
@@ -1601,7 +1791,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 439
+                  "id": 439,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TermsDiscountDate",
@@ -1636,7 +1827,8 @@
                   "maxLength": "3",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 442
+                  "id": 442,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TermsDiscountDueDays",
@@ -1671,7 +1863,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 445
+                  "id": 445,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TermsNetDueDate",
@@ -1706,7 +1899,8 @@
                   "maxLength": "3",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 448
+                  "id": 448,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TermsNetDueDays",
@@ -1740,7 +1934,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 451
+                  "id": 451,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "TermsDiscountAmount",
@@ -1959,8 +2154,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "PaymentTerms",
+          "maxOccurs": "unbounded",
           "id": 117
         },
         {
@@ -2039,8 +2234,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Dates",
+          "maxOccurs": "unbounded",
           "id": 160
         },
         {
@@ -2176,8 +2371,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "AdditionalContactDetails",
+              "maxOccurs": "unbounded",
               "id": 180
             },
             {
@@ -2199,8 +2394,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Contacts",
+          "maxOccurs": "unbounded",
           "id": 169
         },
         {
@@ -2255,7 +2450,7 @@
               "qualifierDescriptions": [
                 {
                   "qual": "BY",
-                  "description": "Buying Party (Purchaser)"
+                  "description": "Buying Party"
                 },
                 {
                   "qual": "SF",
@@ -2305,11 +2500,11 @@
               "qualifierDescriptions": [
                 {
                   "qual": "91",
-                  "description": "Assigned by Seller or Seller's Agent"
+                  "description": "Seller Location Number"
                 },
                 {
                   "qual": "92",
-                  "description": "Assigned by Buyer or Buyer's Agent"
+                  "description": "Buyer Location Number"
                 }
               ]
             },
@@ -2334,7 +2529,8 @@
                   "maxLength": "80",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 257
+                  "id": 257,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AddressLocationNumber",
@@ -2419,7 +2615,8 @@
                   "maxLength": "55",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 284
+                  "id": 284,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Address1",
@@ -2446,7 +2643,8 @@
                   "maxLength": "55",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 287
+                  "id": 287,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Address2",
@@ -2473,7 +2671,8 @@
                   "maxLength": "55",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 284
+                  "id": 284,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Address3",
@@ -2500,7 +2699,8 @@
                   "maxLength": "55",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 287
+                  "id": 287,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Address4",
@@ -2527,7 +2727,8 @@
                   "maxLength": "30",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 295
+                  "id": 295,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "City",
@@ -2561,7 +2762,8 @@
                   "maxLength": "2",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 298
+                  "id": 298,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "State",
@@ -2595,7 +2797,8 @@
                   "maxLength": "15",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 301
+                  "id": 301,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "PostalCode",
@@ -2826,14 +3029,14 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "ReferenceIDs",
+                  "maxOccurs": "unbounded",
                   "id": 235
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "References",
+              "maxOccurs": "unbounded",
               "id": 224
             },
             {
@@ -2969,8 +3172,8 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "AdditionalContactDetails",
+                  "maxOccurs": "unbounded",
                   "id": 251
                 },
                 {
@@ -2992,8 +3195,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Contacts",
+              "maxOccurs": "unbounded",
               "id": 240
             },
             {
@@ -3072,14 +3275,14 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Dates",
+              "maxOccurs": "unbounded",
               "id": 258
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Address",
+          "maxOccurs": "unbounded",
           "id": 187,
           "groups_sourcing": [
             {
@@ -3326,7 +3529,7 @@
               "qualifierDescriptions": [
                 {
                   "qual": "PD",
-                  "description": "Promotion/Deal Number"
+                  "description": "Promotion Deal Number"
                 }
               ]
             },
@@ -3351,7 +3554,8 @@
                   "maxLength": "30",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 136
+                  "id": 136,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "ReferenceID",
@@ -3458,18 +3662,18 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ReferenceIDs",
+              "maxOccurs": "unbounded",
               "id": 278
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "References",
+          "maxOccurs": "unbounded",
           "id": 267
         },
         {
-          "minOccurs": "0",
+          "minOccurs": "1",
           "elementType": "element",
           "hasEnum": false,
           "visible": true,
@@ -3496,7 +3700,7 @@
                   "attributes": [],
                   "elementType": "restriction",
                   "id": 40,
-                  "dropExtraRecords": false
+                  "dropExtraRecords": true
                 }
               ],
               "name": "NoteCode",
@@ -3509,13 +3713,19 @@
                 "elementType": "element"
               },
               "notes": "Certification Narrative: Any notes associated with the certification involved",
-              "qualifiers": "NTE",
+              "qualifiers": "GEN",
               "qualifierConditions": [
                 {
                   "converts": "CER",
                   "customDescription": "",
-                  "qualifier": "NTE",
+                  "qualifier": "GEN",
                   "minOccurs": 1
+                }
+              ],
+              "qualifierDescriptions": [
+                {
+                  "qual": "GEN",
+                  "description": "General Note"
                 }
               ]
             },
@@ -3540,7 +3750,8 @@
                   "maxLength": "80",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 43
+                  "id": 43,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Note",
@@ -3573,8 +3784,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Notes",
+          "maxOccurs": "unbounded",
           "id": 283
         },
         {
@@ -3619,8 +3830,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Commodity",
+          "maxOccurs": "unbounded",
           "id": 290
         },
         {
@@ -3852,8 +4063,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Taxes",
+          "maxOccurs": "unbounded",
           "id": 295
         },
         {
@@ -3942,7 +4153,7 @@
                 "name": "SAC02",
                 "elementType": "element"
               },
-              "qualifiers": "B950,C310,D170,D270,F800,H000,H090,H700,H750,F280,B310,B560,B570,D230,D240,F180,F340,F810,A010,I170,I570",
+              "qualifiers": "F280,B310,B560,B570,B950,C310,D170,D230,D240,D270,F180,F340,F800,F810,A010,H000,H090,H700,H750,I170,I570",
               "qualifierConditions": [
                 {
                   "converts": "",
@@ -3989,6 +4200,22 @@
               ],
               "qualifierDescriptions": [
                 {
+                  "qual": "F280",
+                  "description": "Performance"
+                },
+                {
+                  "qual": "B310",
+                  "description": "Commission"
+                },
+                {
+                  "qual": "B560",
+                  "description": "Container"
+                },
+                {
+                  "qual": "B570",
+                  "description": "Container Deposit"
+                },
+                {
                   "qual": "B950",
                   "description": "Damaged Merchandise"
                 },
@@ -4001,12 +4228,36 @@
                   "description": "Free Goods"
                 },
                 {
+                  "qual": "D230",
+                  "description": "Additional Freight"
+                },
+                {
+                  "qual": "D240",
+                  "description": "Freight"
+                },
+                {
                   "qual": "D270",
-                  "description": "Fuel Surcharge"
+                  "description": "Additional Fuel"
+                },
+                {
+                  "qual": "F180",
+                  "description": "Pallet"
+                },
+                {
+                  "qual": "F340",
+                  "description": "Pickup"
                 },
                 {
                   "qual": "F800",
-                  "description": "Promotional Allowance"
+                  "description": "Promotional"
+                },
+                {
+                  "qual": "F810",
+                  "description": "Promotional Discount"
+                },
+                {
+                  "qual": "A010",
+                  "description": "Absolute Minimum Charge"
                 },
                 {
                   "qual": "H000",
@@ -4023,46 +4274,6 @@
                 {
                   "qual": "H750",
                   "description": "Tax - Sales Tax (State and Local)"
-                },
-                {
-                  "qual": "F280",
-                  "description": "Performance Allowance"
-                },
-                {
-                  "qual": "B310",
-                  "description": "Commission Amount"
-                },
-                {
-                  "qual": "B560",
-                  "description": "Container Allowance"
-                },
-                {
-                  "qual": "B570",
-                  "description": "Container Deposits"
-                },
-                {
-                  "qual": "D230",
-                  "description": "Freight Surcharge"
-                },
-                {
-                  "qual": "D240",
-                  "description": "Freight"
-                },
-                {
-                  "qual": "F180",
-                  "description": "Pallet"
-                },
-                {
-                  "qual": "F340",
-                  "description": "Pick/Up"
-                },
-                {
-                  "qual": "F810",
-                  "description": "Promotional Discount"
-                },
-                {
-                  "qual": "A010",
-                  "description": "Absolute Minimum Charge"
                 },
                 {
                   "qual": "I170",
@@ -4112,7 +4323,7 @@
               "qualifierDescriptions": [
                 {
                   "qual": "VI",
-                  "description": "Voluntary Inter-Industry Commerce Standard (VICS) EDI"
+                  "description": "Voluntary Inter-Industry Commerce Standard [VICS] EDI"
                 }
               ]
             },
@@ -4137,7 +4348,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3421
+                  "id": 3421,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgAgency",
@@ -4171,7 +4383,8 @@
                   "maxLength": "15",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3424
+                  "id": 3424,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgAmt",
@@ -4247,7 +4460,8 @@
                   "maxLength": "6",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3430
+                  "id": 3430,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgPercent",
@@ -4332,7 +4546,8 @@
                   "maxLength": "15",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3439
+                  "id": 3439,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgQty",
@@ -4387,7 +4602,7 @@
                 },
                 {
                   "qual": "06",
-                  "description": "Charge to be Paid by Customer"
+                  "description": "Charge to be paid by customer[Buying Organization]"
                 }
               ]
             },
@@ -4429,7 +4644,8 @@
                   "maxLength": "80",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3454
+                  "id": 3454,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgHandlingDescription",
@@ -4497,7 +4713,8 @@
                   "maxLength": "15",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3442
+                  "id": 3442,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgQty2",
@@ -4773,14 +4990,14 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Taxes",
+              "maxOccurs": "unbounded",
               "id": 361
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "ChargesAllowances",
+          "maxOccurs": "unbounded",
           "id": 322,
           "conditionalSourcing": [
             {
@@ -5077,8 +5294,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "FOBRelatedInstruction",
+          "maxOccurs": "unbounded",
           "id": 388
         },
         {
@@ -5146,7 +5363,7 @@
                 },
                 {
                   "qual": "M",
-                  "description": "Motor (Common Carrier)"
+                  "description": "Motor[Common Carrier]"
                 },
                 {
                   "qual": "P",
@@ -5179,7 +5396,8 @@
                   "maxLength": "4",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3371
+                  "id": 3371,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "CarrierAlphaCode",
@@ -5213,7 +5431,8 @@
                   "maxLength": "35",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3374
+                  "id": 3374,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "CarrierRouting",
@@ -5404,8 +5623,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ServiceLevelCodes",
+              "maxOccurs": "unbounded",
               "id": 434
             },
             {
@@ -5796,14 +6015,14 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "Dates",
+                  "maxOccurs": "unbounded",
                   "id": 474
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Address",
+              "maxOccurs": "unbounded",
               "id": 437
             },
             {
@@ -5848,18 +6067,18 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "SealNumbers",
+              "maxOccurs": "unbounded",
               "id": 483
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "CarrierInformation",
+          "maxOccurs": "unbounded",
           "id": 407
         },
         {
-          "minOccurs": "1",
+          "minOccurs": "0",
           "elementType": "element",
           "hasEnum": false,
           "visible": true,
@@ -5876,6 +6095,7 @@
                   "displayName": "StringSet",
                   "base": "xs:string",
                   "id": 490,
+                  "dropExtraRecords": true,
                   "minLength": "3",
                   "maxLength": "3"
                 }
@@ -5883,11 +6103,18 @@
               "name": "QuantityTotalsQualifier",
               "id": 489,
               "qualifiers": "SQT",
+              "qualifierDescriptions": [
+                {
+                  "qual": "SQT",
+                  "description": "Summary Quantity Totals"
+                }
+              ],
               "qualifierConditions": [
                 {
                   "qualifier": "SQT",
                   "converts": "",
-                  "minOccurs": "1"
+                  "minOccurs": "1",
+                  "customDescription": ""
                 }
               ]
             },
@@ -5912,7 +6139,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3516
+                  "id": 3516,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Quantity",
@@ -5947,7 +6175,25 @@
               "name": "QuantityUOM",
               "id": 493,
               "notes": "Map to hardcode UOM from IT103 if not sent by vendor (see note in ISS01)",
-              "qualifiers": "CA,CT,EA,LB"
+              "qualifiers": "CA,CT,EA,LB",
+              "qualifierDescriptions": [
+                {
+                  "qual": "CA",
+                  "description": "Case"
+                },
+                {
+                  "qual": "CT",
+                  "description": "Carton"
+                },
+                {
+                  "qual": "EA",
+                  "description": "Each"
+                },
+                {
+                  "qual": "LB",
+                  "description": "Pound"
+                }
+              ]
             },
             {
               "minOccurs": "0",
@@ -5987,7 +6233,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 3522
+                  "id": 3522,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "Weight",
@@ -6020,7 +6267,13 @@
               ],
               "name": "WeightUOM",
               "id": 499,
-              "qualifiers": "LB"
+              "qualifiers": "LB",
+              "qualifierDescriptions": [
+                {
+                  "qual": "LB",
+                  "description": "Pound"
+                }
+              ]
             },
             {
               "minOccurs": "0",
@@ -6075,8 +6328,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "QuantityTotals",
+          "maxOccurs": "unbounded",
           "id": 488,
           "groups_sourcing": [
             {
@@ -6216,13 +6469,20 @@
                   "displayName": "StringSet",
                   "base": "xs:string",
                   "id": 509,
+                  "dropExtraRecords": false,
                   "minLength": "4",
                   "maxLength": "4"
                 }
               ],
               "name": "RegulatoryComplianceQual",
               "id": 508,
-              "qualifiers": "PACA"
+              "qualifiers": "PACA",
+              "qualifierDescriptions": [
+                {
+                  "qual": "PACA",
+                  "description": "Perishable Agricultural Commodities Act"
+                }
+              ]
             },
             {
               "minOccurs": "0",
@@ -6236,13 +6496,20 @@
                   "displayName": "StringSet",
                   "base": "xs:string",
                   "id": 511,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "1"
                 }
               ],
               "name": "YesOrNoResponse",
               "id": 510,
-              "qualifiers": "Y"
+              "qualifiers": "Y",
+              "qualifierDescriptions": [
+                {
+                  "qual": "Y",
+                  "description": "Yes"
+                }
+              ]
             },
             {
               "minOccurs": "0",
@@ -6297,8 +6564,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "RegulatoryCompliances",
+          "maxOccurs": "unbounded",
           "id": 507,
           "conditionalSourcing": [
             {
@@ -6405,7 +6672,8 @@
                   "maxLength": "20",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 1210
+                  "id": 1210,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "LineSequenceNumber",
@@ -6447,6 +6715,7 @@
                   "base": "xs:string",
                   "displayName": "String",
                   "id": 525,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "48"
                 }
@@ -6483,6 +6752,7 @@
                   "base": "xs:string",
                   "displayName": "String",
                   "id": 529,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "48"
                 }
@@ -6502,6 +6772,7 @@
                   "base": "xs:string",
                   "displayName": "String",
                   "id": 531,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "48"
                 }
@@ -6538,6 +6809,7 @@
                   "base": "xs:string",
                   "displayName": "String",
                   "id": 535,
+                  "dropExtraRecords": false,
                   "minLength": "1",
                   "maxLength": "48"
                 }
@@ -6597,6 +6869,7 @@
                       "displayName": "StringSet",
                       "base": "xs:string",
                       "id": 542,
+                      "dropExtraRecords": true,
                       "minLength": "3",
                       "maxLength": "3"
                     }
@@ -6604,6 +6877,12 @@
                   "name": "PartNumberQual",
                   "id": 541,
                   "qualifiers": "ZBP",
+                  "qualifierDescriptions": [
+                    {
+                      "qual": "ZBP",
+                      "description": "Additional Buyer Part Number"
+                    }
+                  ],
                   "qualifierConditions": [
                     {
                       "converts": "IN",
@@ -6625,6 +6904,7 @@
                       "base": "xs:string",
                       "displayName": "String",
                       "id": 544,
+                      "dropExtraRecords": false,
                       "minLength": "1",
                       "maxLength": "48"
                     }
@@ -6634,8 +6914,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ProductID",
+              "maxOccurs": "unbounded",
               "id": 540
             },
             {
@@ -6659,7 +6939,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 1213
+                  "id": 1213,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "InvoiceQty",
@@ -6775,7 +7056,7 @@
               "id": 553
             },
             {
-              "minOccurs": "1",
+              "minOccurs": "0",
               "elementType": "element",
               "hasEnum": false,
               "visible": true,
@@ -6795,7 +7076,8 @@
                   "maxLength": "17",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 1219
+                  "id": 1219,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "PurchasePrice",
@@ -7504,6 +7786,30 @@
                 }
               ]
             }
+          ],
+          "validation": [
+            {
+              "type": "atLeastOneOf",
+              "conditions": [],
+              "results": [],
+              "rules": [
+                {
+                  "conjunction": "or",
+                  "conditions": [
+                    {
+                      "condition": "required",
+                      "element": "LineSequenceNumber",
+                      "value": ""
+                    },
+                    {
+                      "condition": "required",
+                      "element": "PurchasePrice",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
@@ -7701,8 +8007,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Measurements",
+          "maxOccurs": "unbounded",
           "id": 624
         },
         {
@@ -7985,12 +8291,12 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "PriceInformation",
+          "maxOccurs": "unbounded",
           "id": 647
         },
         {
-          "minOccurs": "0",
+          "minOccurs": "1",
           "elementType": "element",
           "hasEnum": false,
           "visible": true,
@@ -8017,7 +8323,7 @@
                   "attributes": [],
                   "elementType": "restriction",
                   "id": 1823,
-                  "dropExtraRecords": false
+                  "dropExtraRecords": true
                 }
               ],
               "name": "ProductCharacteristicCode",
@@ -8041,7 +8347,7 @@
               "qualifierDescriptions": [
                 {
                   "qual": "08",
-                  "description": "Product"
+                  "description": "Product Description"
                 }
               ]
             },
@@ -8100,7 +8406,8 @@
                   "maxLength": "80",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 1832
+                  "id": 1832,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "ProductDescription",
@@ -8183,8 +8490,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "ProductOrItemDescription",
+          "maxOccurs": "unbounded",
           "id": 680,
           "conditionalSourcing": [
             {
@@ -8518,20 +8825,20 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "Measurements",
+                  "maxOccurs": "unbounded",
                   "id": 709
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ItemAttribute",
+              "maxOccurs": "unbounded",
               "id": 698
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "MasterItemAttribute",
+          "maxOccurs": "unbounded",
           "id": 697
         },
         {
@@ -8552,13 +8859,24 @@
                   "displayName": "StringSet",
                   "base": "xs:string",
                   "id": 734,
+                  "dropExtraRecords": false,
                   "minLength": "2",
                   "maxLength": "2"
                 }
               ],
               "name": "PackQualifier",
               "id": 733,
-              "qualifiers": "OU,IN"
+              "qualifiers": "IN,OU",
+              "qualifierDescriptions": [
+                {
+                  "qual": "OU",
+                  "description": "Outer"
+                },
+                {
+                  "qual": "IN",
+                  "description": "Inner"
+                }
+              ]
             },
             {
               "minOccurs": "0",
@@ -8581,7 +8899,8 @@
                   "maxLength": "6",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 2068
+                  "id": 2068,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "PackValue",
@@ -8861,8 +9180,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "PhysicalDetails",
+          "maxOccurs": "unbounded",
           "id": 732,
           "conditionalSourcing": [
             {
@@ -9074,14 +9393,14 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ReferenceIDs",
+              "maxOccurs": "unbounded",
               "id": 780
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "References",
+          "maxOccurs": "unbounded",
           "id": 769
         },
         {
@@ -9143,8 +9462,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Notes",
+          "maxOccurs": "unbounded",
           "id": 785
         },
         {
@@ -9189,8 +9508,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Commodity",
+          "maxOccurs": "unbounded",
           "id": 792
         },
         {
@@ -9269,8 +9588,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Dates",
+          "maxOccurs": "unbounded",
           "id": 797
         },
         {
@@ -9525,8 +9844,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ServiceLevelCodes",
+              "maxOccurs": "unbounded",
               "id": 833
             },
             {
@@ -9917,14 +10236,14 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "Dates",
+                  "maxOccurs": "unbounded",
                   "id": 873
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Address",
+              "maxOccurs": "unbounded",
               "id": 836
             },
             {
@@ -9969,61 +10288,97 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "SealNumbers",
+              "maxOccurs": "unbounded",
               "id": 882
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "CarrierInformation",
+          "maxOccurs": "unbounded",
           "id": 806
         },
         {
           "minOccurs": "0",
           "elementType": "element",
           "hasEnum": false,
-          "visible": false,
+          "visible": true,
           "children": [
             {
               "minOccurs": "0",
               "elementType": "element",
               "hasEnum": false,
-              "visible": false,
+              "visible": true,
               "children": [
                 {
-                  "minOccurs": "0",
+                  "minOccurs": "1",
                   "elementType": "element",
                   "hasEnum": false,
-                  "visible": false,
+                  "visible": true,
                   "children": [],
                   "attributes": [
                     {
-                      "elementType": "restriction",
-                      "base": "xs:string",
+                      "hasEnum": false,
+                      "validation": [],
                       "displayName": "String",
-                      "id": 890
+                      "minOccurs": "1",
+                      "minLength": "1",
+                      "children": [],
+                      "visible": true,
+                      "ediId": "350",
+                      "EDIDataType": "AN",
+                      "base": "EDI-Element-String-Type",
+                      "maxLength": "20",
+                      "attributes": [],
+                      "elementType": "restriction",
+                      "id": 2603,
+                      "dropExtraRecords": false
                     }
                   ],
                   "name": "LineSequenceNumber",
-                  "id": 889
+                  "id": 889,
+                  "sourcing": {
+                    "documentation": "Alphanumeric characters assigned for differentiation within a transaction set",
+                    "hasEnum": false,
+                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/SLN01",
+                    "name": "SLN01",
+                    "elementType": "element"
+                  }
                 },
                 {
                   "minOccurs": "0",
                   "elementType": "element",
                   "hasEnum": false,
-                  "visible": false,
+                  "visible": true,
                   "children": [],
                   "attributes": [
                     {
-                      "elementType": "restriction",
-                      "base": "xs:string",
+                      "hasEnum": false,
+                      "validation": [],
                       "displayName": "String",
-                      "id": 892
+                      "minOccurs": "1",
+                      "minLength": "1",
+                      "children": [],
+                      "visible": true,
+                      "ediId": "350",
+                      "EDIDataType": "AN",
+                      "base": "EDI-Element-String-Type",
+                      "maxLength": "20",
+                      "attributes": [],
+                      "elementType": "restriction",
+                      "id": 2606,
+                      "dropExtraRecords": false
                     }
                   ],
                   "name": "ApplicationId",
-                  "id": 891
+                  "id": 891,
+                  "sourcing": {
+                    "documentation": "Alphanumeric characters assigned for differentiation within a transaction set",
+                    "hasEnum": false,
+                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/SLN02",
+                    "name": "SLN02",
+                    "elementType": "element"
+                  }
                 },
                 {
                   "minOccurs": "0",
@@ -10203,8 +10558,8 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "ProductID",
+                  "maxOccurs": "unbounded",
                   "id": 909
                 },
                 {
@@ -10347,35 +10702,78 @@
                   "minOccurs": "0",
                   "elementType": "element",
                   "hasEnum": false,
-                  "visible": false,
+                  "visible": true,
                   "children": [],
                   "attributes": [
                     {
-                      "elementType": "restriction",
-                      "base": "xs:decimal",
+                      "hasEnum": false,
+                      "validation": [],
                       "displayName": "Decimal",
-                      "id": 931
+                      "minOccurs": "1",
+                      "minLength": "1",
+                      "children": [],
+                      "visible": true,
+                      "ediId": "380",
+                      "EDIDataType": "R",
+                      "base": "EDI-Element-Decimal-Type",
+                      "maxLength": "15",
+                      "attributes": [],
+                      "elementType": "restriction",
+                      "id": 2612,
+                      "dropExtraRecords": false
                     }
                   ],
                   "name": "QtyPer",
-                  "id": 930
+                  "id": 930,
+                  "sourcing": {
+                    "documentation": "Numeric value of quantity",
+                    "hasEnum": false,
+                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/SLN04",
+                    "name": "SLN04",
+                    "elementType": "element"
+                  }
                 },
                 {
-                  "minOccurs": "0",
+                  "minOccurs": "1",
                   "elementType": "element",
                   "hasEnum": true,
-                  "visible": false,
+                  "visible": true,
                   "children": [],
                   "attributes": [
                     {
-                      "elementType": "restriction",
+                      "hasEnum": true,
+                      "validation": [],
                       "displayName": "StringSet",
-                      "base": "xs:string",
-                      "id": 933
+                      "minOccurs": "1",
+                      "minLength": "2",
+                      "children": [],
+                      "visible": true,
+                      "ediId": "355",
+                      "EDIDataType": "ID",
+                      "base": "EDI-Element-String-Type",
+                      "maxLength": "2",
+                      "attributes": [],
+                      "elementType": "restriction",
+                      "id": 2617,
+                      "dropExtraRecords": false
                     }
                   ],
                   "name": "QtyPerUOM",
-                  "id": 932
+                  "id": 932,
+                  "sourcing": {
+                    "documentation": "Code specifying the units in which a value is being expressed, or manner in which a measurement has been taken",
+                    "hasEnum": true,
+                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/Composite-SLN05/SLN05-01",
+                    "name": "SLN05-01",
+                    "elementType": "element"
+                  },
+                  "qualifiers": "EA",
+                  "qualifierDescriptions": [
+                    {
+                      "qual": "EA",
+                      "description": "Each"
+                    }
+                  ]
                 },
                 {
                   "minOccurs": "0",
@@ -10398,35 +10796,78 @@
                   "minOccurs": "0",
                   "elementType": "element",
                   "hasEnum": false,
-                  "visible": false,
+                  "visible": true,
                   "children": [],
                   "attributes": [
                     {
-                      "elementType": "restriction",
-                      "base": "xs:decimal",
+                      "hasEnum": false,
+                      "validation": [],
                       "displayName": "Decimal",
-                      "id": 937
+                      "minOccurs": "1",
+                      "minLength": "1",
+                      "children": [],
+                      "visible": true,
+                      "ediId": "212",
+                      "EDIDataType": "R",
+                      "base": "EDI-Element-Decimal-Type",
+                      "maxLength": "17",
+                      "attributes": [],
+                      "elementType": "restriction",
+                      "id": 2665,
+                      "dropExtraRecords": false
                     }
                   ],
                   "name": "PurchasePrice",
-                  "id": 936
+                  "id": 936,
+                  "sourcing": {
+                    "documentation": "Price per unit of product, service, commodity, etc.",
+                    "hasEnum": false,
+                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/SLN06",
+                    "name": "SLN06",
+                    "elementType": "element"
+                  }
                 },
                 {
                   "minOccurs": "0",
                   "elementType": "element",
                   "hasEnum": true,
-                  "visible": false,
+                  "visible": true,
                   "children": [],
                   "attributes": [
                     {
-                      "elementType": "restriction",
+                      "hasEnum": true,
+                      "validation": [],
                       "displayName": "StringSet",
-                      "base": "xs:string",
-                      "id": 939
+                      "minOccurs": "1",
+                      "minLength": "2",
+                      "children": [],
+                      "visible": true,
+                      "ediId": "639",
+                      "EDIDataType": "ID",
+                      "base": "EDI-Element-String-Type",
+                      "maxLength": "2",
+                      "attributes": [],
+                      "elementType": "restriction",
+                      "id": 2668,
+                      "dropExtraRecords": false
                     }
                   ],
                   "name": "PurchasePriceBasis",
-                  "id": 938
+                  "id": 938,
+                  "sourcing": {
+                    "documentation": "Code identifying the type of unit price for an item",
+                    "hasEnum": true,
+                    "location": "Transaction-810/Loop-IT1/Loop-SLN/Segment-SLN/SLN07",
+                    "name": "SLN07",
+                    "elementType": "element"
+                  },
+                  "qualifiers": "HF",
+                  "qualifierDescriptions": [
+                    {
+                      "qual": "HF",
+                      "description": "Price per 100 Feet"
+                    }
+                  ]
                 },
                 {
                   "minOccurs": "0",
@@ -10928,8 +11369,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "PriceInformation",
+              "maxOccurs": "unbounded",
               "id": 965
             },
             {
@@ -11076,8 +11517,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "ProductOrItemDescription",
+              "maxOccurs": "unbounded",
               "id": 998
             },
             {
@@ -11394,8 +11835,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "PhysicalDetails",
+              "maxOccurs": "unbounded",
               "id": 1015
             },
             {
@@ -11440,8 +11881,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Commodity",
+              "maxOccurs": "unbounded",
               "id": 1052
             },
             {
@@ -11537,14 +11978,14 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "RegulatoryCompliances",
+              "maxOccurs": "unbounded",
               "id": 1057
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Subline",
+          "maxOccurs": "unbounded",
           "id": 887
         },
         {
@@ -11992,14 +12433,14 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "ReferenceIDs",
+                  "maxOccurs": "unbounded",
                   "id": 1116
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "References",
+              "maxOccurs": "unbounded",
               "id": 1105
             },
             {
@@ -12135,8 +12576,8 @@
                     }
                   ],
                   "attributes": [],
-                  "maxOccurs": "unbounded",
                   "name": "AdditionalContactDetails",
+                  "maxOccurs": "unbounded",
                   "id": 1132
                 },
                 {
@@ -12158,8 +12599,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Contacts",
+              "maxOccurs": "unbounded",
               "id": 1121
             },
             {
@@ -12238,14 +12679,14 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Dates",
+              "maxOccurs": "unbounded",
               "id": 1139
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Address",
+          "maxOccurs": "unbounded",
           "id": 1068
         },
         {
@@ -12398,8 +12839,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "LocationQuantity",
+              "maxOccurs": "unbounded",
               "id": 1161
             },
             {
@@ -12478,8 +12919,8 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Dates",
+              "maxOccurs": "unbounded",
               "id": 1166
             },
             {
@@ -12569,8 +13010,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "QuantitiesSchedulesLocations",
+          "maxOccurs": "unbounded",
           "id": 1148
         },
         {
@@ -12802,8 +13243,8 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "Taxes",
+          "maxOccurs": "unbounded",
           "id": 1185
         },
         {
@@ -12892,7 +13333,7 @@
                 "name": "SAC02",
                 "elementType": "element"
               },
-              "qualifiers": "B950,C310,D170,D270,F800,H000,H090,H700,H750,F280,B310,B560,B570,D230,D240,F180,F340,F810,A010,I170,I570",
+              "qualifiers": "F280,B310,B560,B570,B950,C310,D170,D230,D240,D270,F180,F340,F800,F810,A010,H000,H090,H700,H750,I170,I570",
               "qualifierConditions": [
                 {
                   "converts": "",
@@ -12939,6 +13380,22 @@
               ],
               "qualifierDescriptions": [
                 {
+                  "qual": "F280",
+                  "description": "Performance"
+                },
+                {
+                  "qual": "B310",
+                  "description": "Commission"
+                },
+                {
+                  "qual": "B560",
+                  "description": "Container"
+                },
+                {
+                  "qual": "B570",
+                  "description": "Container Deposit"
+                },
+                {
                   "qual": "B950",
                   "description": "Damaged Merchandise"
                 },
@@ -12951,12 +13408,36 @@
                   "description": "Free Goods"
                 },
                 {
+                  "qual": "D230",
+                  "description": "Additional Freight"
+                },
+                {
+                  "qual": "D240",
+                  "description": "Freight"
+                },
+                {
                   "qual": "D270",
-                  "description": "Fuel Surcharge"
+                  "description": "Additional Fuel"
+                },
+                {
+                  "qual": "F180",
+                  "description": "Pallet"
+                },
+                {
+                  "qual": "F340",
+                  "description": "Pickup"
                 },
                 {
                   "qual": "F800",
-                  "description": "Promotional Allowance"
+                  "description": "Promotional"
+                },
+                {
+                  "qual": "F810",
+                  "description": "Promotional Discount"
+                },
+                {
+                  "qual": "A010",
+                  "description": "Absolute Minimum Charge"
                 },
                 {
                   "qual": "H000",
@@ -12973,46 +13454,6 @@
                 {
                   "qual": "H750",
                   "description": "Tax - Sales Tax (State and Local)"
-                },
-                {
-                  "qual": "F280",
-                  "description": "Performance Allowance"
-                },
-                {
-                  "qual": "B310",
-                  "description": "Commission Amount"
-                },
-                {
-                  "qual": "B560",
-                  "description": "Container Allowance"
-                },
-                {
-                  "qual": "B570",
-                  "description": "Container Deposits"
-                },
-                {
-                  "qual": "D230",
-                  "description": "Freight Surcharge"
-                },
-                {
-                  "qual": "D240",
-                  "description": "Freight"
-                },
-                {
-                  "qual": "F180",
-                  "description": "Pallet"
-                },
-                {
-                  "qual": "F340",
-                  "description": "Pick/Up"
-                },
-                {
-                  "qual": "F810",
-                  "description": "Promotional Discount"
-                },
-                {
-                  "qual": "A010",
-                  "description": "Absolute Minimum Charge"
                 },
                 {
                   "qual": "I170",
@@ -13062,7 +13503,7 @@
               "qualifierDescriptions": [
                 {
                   "qual": "VI",
-                  "description": "Voluntary Inter-Industry Commerce Standard (VICS) EDI"
+                  "description": "Voluntary Inter-Industry Commerce Standard [VICS] EDI"
                 }
               ]
             },
@@ -13087,7 +13528,8 @@
                   "maxLength": "10",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 2508
+                  "id": 2508,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgAgency",
@@ -13121,7 +13563,8 @@
                   "maxLength": "15",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 2511
+                  "id": 2511,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgAmt",
@@ -13202,7 +13645,8 @@
                   "maxLength": "6",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 2517
+                  "id": 2517,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgPercent",
@@ -13312,7 +13756,8 @@
                   "maxLength": "15",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 2526
+                  "id": 2526,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgQty",
@@ -13367,7 +13812,7 @@
                 },
                 {
                   "qual": "06",
-                  "description": "Charge to be Paid by Customer"
+                  "description": "Charge to be paid by customer[Buying Organization]"
                 }
               ]
             },
@@ -13409,7 +13854,8 @@
                   "maxLength": "80",
                   "attributes": [],
                   "elementType": "restriction",
-                  "id": 2541
+                  "id": 2541,
+                  "dropExtraRecords": false
                 }
               ],
               "name": "AllowChrgHandlingDescription",
@@ -13736,14 +14182,14 @@
                 }
               ],
               "attributes": [],
-              "maxOccurs": "unbounded",
               "name": "Taxes",
+              "maxOccurs": "unbounded",
               "id": 1251
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "ChargesAllowances",
+          "maxOccurs": "unbounded",
           "id": 1212,
           "validation": [
             {
@@ -13957,14 +14403,14 @@
             }
           ],
           "attributes": [],
-          "maxOccurs": "unbounded",
           "name": "RegulatoryCompliances",
+          "maxOccurs": "unbounded",
           "id": 1278
         }
       ],
       "attributes": [],
-      "maxOccurs": "unbounded",
       "name": "LineItem",
+      "maxOccurs": "unbounded",
       "id": 518
     },
     {
@@ -13994,7 +14440,8 @@
               "maxLength": "15",
               "attributes": [],
               "elementType": "restriction",
-              "id": 3307
+              "id": 3307,
+              "dropExtraRecords": false
             }
           ],
           "name": "TotalAmount",
@@ -14028,7 +14475,8 @@
               "maxLength": "15",
               "attributes": [],
               "elementType": "restriction",
-              "id": 3310
+              "id": 3310,
+              "dropExtraRecords": false
             }
           ],
           "name": "TotalSalesAmount",
@@ -14164,7 +14612,8 @@
               "maxLength": "6",
               "attributes": [],
               "elementType": "restriction",
-              "id": 3589
+              "id": 3589,
+              "dropExtraRecords": false
             }
           ],
           "name": "TotalLineItemNumber",

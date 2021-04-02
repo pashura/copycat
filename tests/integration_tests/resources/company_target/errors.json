@@ -3,42 +3,63 @@
     "fieldName": "TradingPartnerId",
     "designPath": "Invoice/Header/InvoiceHeader/TradingPartnerId",
     "xpath": "/Invoice/Header/InvoiceHeader/TradingPartnerId",
-    "errorMessage": "Given data: 'TradingP_DS_000123' with length 18 is bigger then max length of the element - 15"
-  },
-  {
-    "fieldName": "PrimaryPOTypeCode",
-    "designPath": "Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
-    "xpath": "/Invoice/Header/InvoiceHeader/PrimaryPOTypeCode",
-    "errorMessage": "Qualifier ZZ is not valid. Possible choices -> ['DS']"
+    "errorMessage": "Given data: 'TradingP_DS_000123' with length 18 is bigger then max length of the element - 15",
+    "errorType": "fieldLength"
   },
   {
     "fieldName": "ShipDate",
     "designPath": "Invoice/Header/InvoiceHeader/ShipDate",
     "xpath": "/Invoice/Header/InvoiceHeader/ShipDate",
-    "errorMessage": "DataType is incorrect. Should be -> 'Date'. Found -> 'String'"
+    "errorMessage": "DataType is incorrect. Should be -> 'Date'. Found -> 'String'",
+    "errorType": "dataType"
   },
   {
-    "fieldName": "ShipTime",
-    "designPath": "Invoice/Header/InvoiceHeader/ShipTime",
-    "xpath": "/Invoice/Header/InvoiceHeader/ShipTime",
-    "errorMessage": "DataType is incorrect. Should be -> 'Time'. Found -> 'String'"
+    "fieldName": "",
+    "designPath": "Invoice/Header/InvoiceHeader",
+    "xpath": "",
+    "errorMessage": "At least one of TsetPurposeCode or ActionCode is required",
+    "errorType": "conditionAtLeastOneOf"
+  },
+  {
+    "fieldName": "",
+    "designPath": "Invoice/Header/InvoiceHeader",
+    "xpath": "",
+    "errorMessage": "At least one of PrimaryPOTypeCode is equal to DS or TsetPurposeCode is equal to 07 is required",
+    "errorType": "conditionAtLeastOneOf"
+  },
+  {
+    "fieldName": "",
+    "designPath": "Invoice/Header/InvoiceHeader",
+    "xpath": "",
+    "errorMessage": "At least one of ActionCode is equal to 1 or JobNumber is required",
+    "errorType": "conditionAtLeastOneOf"
+  },
+  {
+    "fieldName": "",
+    "designPath": "Invoice/Header/InvoiceHeader",
+    "xpath": "",
+    "errorMessage": "If PrimaryPOTypeCode or ActionCode is equal to 2 is present, then all are required",
+    "errorType": "conditionIfOneThenAll"
   },
   {
     "fieldName": "",
     "designPath": "Invoice/Header/InvoiceHeader/InvoiceNumber",
     "xpath": "",
-    "errorMessage": "Missing mandatory InvoiceNumber in InvoiceHeader record"
+    "errorMessage": "Missing mandatory InvoiceNumber in InvoiceHeader record",
+    "errorType": "fieldLength"
   },
   {
     "fieldName": "",
     "designPath": "Invoice/Header/PaymentTerms",
     "xpath": "",
-    "errorMessage": "Missing mandatory PaymentTerms record"
+    "errorMessage": "Missing mandatory PaymentTerms record",
+    "errorType": "groupRequirements"
   },
   {
     "fieldName": "",
     "designPath": "Invoice/Summary",
     "xpath": "",
-    "errorMessage": "Missing mandatory Summary record"
+    "errorMessage": "Missing mandatory Summary record",
+    "errorType": "groupRequirements"
   }
 ]
