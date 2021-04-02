@@ -8,17 +8,26 @@ from tests.integration_tests import RESOURCES_DIR_TARGET_INVOICE
 
 def pre_load_data(resource_directory):
     data = tuple()
-    file_names = ('design.json', 'reversed_design.json', 'rsx_test_data_failed.xml', 'rsx_test_data_passed.xml',
-                  'errors.json', 'transform_result.feds')
+    file_names = (
+        "design.json",
+        "reversed_design.json",
+        "rsx_test_data_failed.xml",
+        "rsx_test_data_passed.xml",
+        "errors.json",
+        "transform_result.feds",
+    )
     for file_name in file_names:
-        with open(os.path.join(resource_directory, file_name), 'rb' if file_name.endswith('.xml') else 'r') as f:
+        with open(
+            os.path.join(resource_directory, file_name),
+            "rb" if file_name.endswith(".xml") else "r",
+        ) as f:
             data += (f.read(),)
 
     return data
 
 
 class IntegrationTestRun(unittest.TestCase):
-    RESOURCES_DIR = ''
+    RESOURCES_DIR = ""
 
     def __init__(self, *args, **kwargs):
         super(IntegrationTestRun, self).__init__(*args, **kwargs)
@@ -36,7 +45,7 @@ class IntegrationTestRun(unittest.TestCase):
         cc = CopyCat()
         result = cc.run(json.loads(data[0]), json.loads(data[1]), data[3])
         assert [] == cc.validator.errors_container.errors()
-        assert data[5] == '\n'.join(result)
+        assert data[5] == "\n".join(result)
 
         # *** this test currently runs in 1.988ms *** # -> PLEASE UPDATE THIS VALUE IF THE TEST CHANGED
 
@@ -45,5 +54,5 @@ class IntegrationTestRunTargetInvoice(IntegrationTestRun):
     RESOURCES_DIR = RESOURCES_DIR_TARGET_INVOICE
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

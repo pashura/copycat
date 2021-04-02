@@ -11,47 +11,26 @@ def test_parse_returns_flatten_object():
                     {
                         "name": "InvoiceHeader",
                         "children": [
-                            {
-                                "name": "TradingPartnerId",
-                                "text": "009ACH1G1A1G1"
-                            }
-                        ]
+                            {"name": "TradingPartnerId", "text": "009ACH1G1A1G1"}
+                        ],
                     },
                     {
                         "name": "Dates",
-                        "children": [
-                            {
-                                "name": "DateTimeQualifier",
-                                "text": "024"
-                            }
-                        ]
-                    }
-                ]
+                        "children": [{"name": "DateTimeQualifier", "text": "024"}],
+                    },
+                ],
             },
             {
                 "name": "LineItem",
                 "children": [
                     {
                         "name": "InvoiceLine",
-                        "children": [
-                            {
-                                "name": "BuyerPartNumber",
-                                "text": "081070041"
-                            }
-                        ]
+                        "children": [{"name": "BuyerPartNumber", "text": "081070041"}],
                     },
-                ]
+                ],
             },
-            {
-                "name": "Summary",
-                "children": [
-                    {
-                        "name": "TotalAmount",
-                        "text": "31.28"
-                    }
-                ]
-            }
-        ]
+            {"name": "Summary", "children": [{"name": "TotalAmount", "text": "31.28"}]},
+        ],
     }
     expected_result = [
         {
@@ -63,22 +42,14 @@ def test_parse_returns_flatten_object():
                         {
                             "name": "InvoiceHeader",
                             "children": [
-                                {
-                                    "name": "TradingPartnerId",
-                                    "text": "009ACH1G1A1G1"
-                                }
-                            ]
+                                {"name": "TradingPartnerId", "text": "009ACH1G1A1G1"}
+                            ],
                         },
                         {
                             "name": "Dates",
-                            "children": [
-                                {
-                                    "name": "DateTimeQualifier",
-                                    "text": "024"
-                                }
-                            ]
-                        }
-                    ]
+                            "children": [{"name": "DateTimeQualifier", "text": "024"}],
+                        },
+                    ],
                 },
                 {
                     "name": "LineItem",
@@ -86,114 +57,53 @@ def test_parse_returns_flatten_object():
                         {
                             "name": "InvoiceLine",
                             "children": [
-                                {
-                                    "name": "BuyerPartNumber",
-                                    "text": "081070041"
-                                }
-                            ]
+                                {"name": "BuyerPartNumber", "text": "081070041"}
+                            ],
                         }
-                    ]
+                    ],
                 },
                 {
                     "name": "Summary",
-                    "children": [
-                        {
-                            "name": "TotalAmount",
-                            "text": "31.28"
-                        }
-                    ]
-                }
-            ]
+                    "children": [{"name": "TotalAmount", "text": "31.28"}],
+                },
+            ],
         },
         {
             "name": "Header",
             "children": [
                 {
                     "name": "InvoiceHeader",
-                    "children": [
-                        {
-                            "name": "TradingPartnerId",
-                            "text": "009ACH1G1A1G1"
-                        }
-                    ]
+                    "children": [{"name": "TradingPartnerId", "text": "009ACH1G1A1G1"}],
                 },
                 {
                     "name": "Dates",
-                    "children": [
-                        {
-                            "name": "DateTimeQualifier",
-                            "text": "024"
-                        }
-                    ]
-                }
-            ]
+                    "children": [{"name": "DateTimeQualifier", "text": "024"}],
+                },
+            ],
         },
         {
             "name": "InvoiceHeader",
-            "children": [
-                {
-                    "name": "TradingPartnerId",
-                    "text": "009ACH1G1A1G1"
-                }
-            ]
+            "children": [{"name": "TradingPartnerId", "text": "009ACH1G1A1G1"}],
         },
-        {
-            "name": "TradingPartnerId",
-            "text": "009ACH1G1A1G1"
-        },
-        {
-            "name": "Dates",
-            "children": [
-                {
-                    "name": "DateTimeQualifier",
-                    "text": "024"
-                }
-            ]
-        },
-        {
-            "name": "DateTimeQualifier",
-            "text": "024"
-        },
+        {"name": "TradingPartnerId", "text": "009ACH1G1A1G1"},
+        {"name": "Dates", "children": [{"name": "DateTimeQualifier", "text": "024"}]},
+        {"name": "DateTimeQualifier", "text": "024"},
         {
             "name": "LineItem",
             "children": [
                 {
                     "name": "InvoiceLine",
-                    "children": [
-                        {
-                            "name": "BuyerPartNumber",
-                            "text": "081070041"
-                        }
-                    ]
+                    "children": [{"name": "BuyerPartNumber", "text": "081070041"}],
                 }
-            ]
+            ],
         },
         {
             "name": "InvoiceLine",
-            "children": [
-                {
-                    "name": "BuyerPartNumber",
-                    "text": "081070041"
-                }
-            ]
+            "children": [{"name": "BuyerPartNumber", "text": "081070041"}],
         },
-        {
-            "name": "BuyerPartNumber",
-            "text": "081070041"
-        },
-        {
-            "name": "Summary",
-            "children": [
-                {
-                    "name": "TotalAmount",
-                    "text": "31.28"
-                }
-            ]
-        },
-        {
-            "name": "TotalAmount",
-            "text": "31.28"
-        }
+        {"name": "BuyerPartNumber", "text": "081070041"},
+        {"name": "Summary", "children": [{"name": "TotalAmount", "text": "31.28"}]},
+        {"name": "TotalAmount", "text": "31.28"},
     ]
     result = JSONParser().parse(json_obj)
     assert result == expected_result

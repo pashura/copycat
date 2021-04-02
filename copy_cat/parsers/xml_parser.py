@@ -4,7 +4,6 @@ from lxml import etree, objectify
 
 
 class XMLParser:
-
     def parse(self, xml_file):
         tree = etree.fromstring(xml_file)
         tree = etree.ElementTree(tree)
@@ -15,28 +14,28 @@ class XMLParser:
 
     def xml_to_json(self, elem, parent, tree):
         if not parent:
-            parent['name'] = elem.tag
-            parent['location'] = tree.getpath(elem)
-            parent['children'] = []
+            parent["name"] = elem.tag
+            parent["location"] = tree.getpath(elem)
+            parent["children"] = []
             for child in list(elem):
                 self.xml_to_json(child, parent, tree)
         else:
-            this = {'name': elem.tag, 'location': tree.getpath(elem)}
+            this = {"name": elem.tag, "location": tree.getpath(elem)}
             if elem.text and isinstance(elem.text, str) and not elem.text.isspace():
-                this['text'] = elem.text
-                this['length'] = len(elem.text)
+                this["text"] = elem.text
+                this["length"] = len(elem.text)
                 if elem.text in ["true", "false"]:
-                    this['text'] = bool(util.strtobool(elem.text))
-                this['type'] = self._guess_type(elem)
+                    this["text"] = bool(util.strtobool(elem.text))
+                this["type"] = self._guess_type(elem)
             if parent:
-                parent['children'].append(this)
+                parent["children"].append(this)
             if list(elem):
-                this['children'] = []
+                this["children"] = []
             for child in list(elem):
                 self.xml_to_json(child, this, tree)
 
     @staticmethod
     def _guess_type(elem) -> str:
         objectify.annotate(elem)
-        dumped = objectify.dump(elem).split('*')
-        return dumped[1].split('\'')[1] if len(dumped) > 0 else ''
+        dumped = objectify.dump(elem).split("*")
+        return dumped[1].split("'")[1] if len(dumped) > 0 else ""

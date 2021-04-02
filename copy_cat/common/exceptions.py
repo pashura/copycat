@@ -2,8 +2,8 @@ class ServiceError(Exception):
     """Base class for Exceptions in this module"""
 
     def __init__(self, *args, **kwargs):
-        self.message = kwargs.pop('message', '')
-        self.body = kwargs.pop('body', '')
+        self.message = kwargs.pop("message", "")
+        self.body = kwargs.pop("body", "")
 
 
 class NotFoundError(ServiceError, FileNotFoundError):
