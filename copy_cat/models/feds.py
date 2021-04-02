@@ -7,8 +7,8 @@ from copy_cat.models.base import BaseFeds
 
 class FedsElement(BaseFeds):
     value: str
-    element_id: str
-    composite_id: str = Field(default="000")
+    element_id: str = Field(alias="elementId")
+    composite_id: str = Field(default="000", alias="compositeId")
     identifier: str = Field(default="E")
     data_type: str = Field(alias="dataType")
 
