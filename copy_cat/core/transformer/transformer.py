@@ -69,7 +69,7 @@ class Transformer:
     def __element(source_location, value, restriction):
         return FedsElement(
             value=value,
-            element_id=f"0{source_location.location[-2:]}",
+            elementId=f"0{source_location.location[-2:]}",
             dataType=restriction.display_name,
         )
 
@@ -77,8 +77,8 @@ class Transformer:
     def __composite(source_location, value, restriction):
         return FedsElement(
             value=value,
-            element_id=f"0{source_location.parent_name[-2:]}",
-            composite_id=f"0{source_location.location.split('-')[-1]}",
+            elementId=f"0{source_location.parent_name[-2:]}",
+            compositeId=f"0{source_location.location.split('-')[-1]}",
             dataType=restriction.display_name,
         )
 

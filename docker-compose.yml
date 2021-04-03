@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  api:
+    stdin_open: true
+    tty: true
+    build: .
+    command: python app.py
+    volumes:
+      - .:/usr/src/app/
+      - ~/.aws:/root/.aws:ro
+    ports:
+      - 5000:5000
+    env_file:
+      - ./.env.dev
