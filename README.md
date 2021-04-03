@@ -45,3 +45,14 @@ Org ID: 177994338583572210389088925105933476529
 
 Design Name: Target_RSX_7.7_Invoices_to_X12_4010_Transaction-810
 ```
+
+Docker:
+```shell
+docker-compose up -d
+```
+```shell
+docker container ls
+```
+```shell
+docker attach {container_id} 
+```

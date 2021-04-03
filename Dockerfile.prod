@@ -33,7 +33,6 @@ ENV APP_HOME=/home/app/web
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-RUN apt-get update && apt-get install -y --no-install-recommends netcat
 COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip
@@ -46,5 +45,3 @@ COPY . $APP_HOME
 RUN chown -R app:app $APP_HOME
 
 USER app
-
-ENTRYPOINT ["/home/app/web/entrypoint.sh"]

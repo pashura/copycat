@@ -2,7 +2,6 @@ import json
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
-from flask_sqlalchemy import SQLAlchemy
 
 from copy_cat.copy_cat import CopyCat
 from copy_cat.scripts.reports.parcels import make_report
@@ -12,20 +11,6 @@ app = Flask(__name__)
 CORS(app)
 
 app.config["CORS_HEADERS"] = "Content-Type"
-app.config.from_object("config.Config")
-db = SQLAlchemy(app)
-
-
-class Transformations(db.Model):
-    __tablename__ = "transformations"
-
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(128), nullable=False)
-    design_name = db.Column(db.String(128), nullable=False)
-
-    def __init__(self, email, design_name):
-        self.email = email
-        self.design_name = design_name
 
 
 @app.route("/up")
@@ -111,3 +96,7 @@ def run_report(org_id, design_name):
     reversed_design = td_service.get_reversed_design(org_id, design_name)
     report = make_report(design, reversed_design, json.loads(request.data))
     return jsonify(report)
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
